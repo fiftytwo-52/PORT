@@ -245,6 +245,7 @@ main {
   display: flex;
   justify-content: center;
   width: 100%;
+  animation: upDown 2s ease-in-out infinite;
 }
 .scroll-arrow {
   width: 18px;
@@ -252,15 +253,23 @@ main {
   border-bottom: 3px solid white;
   border-right: 3px solid white;
   transform: rotate(45deg);
-  animation: glowPulse 1.5s infinite alternate;
-  filter: drop-shadow(0 0 6px white);
+  animation: glowPulse 1s infinite alternate;
+  filter: drop-shadow(0 0 18px white);
 }
 @keyframes glowPulse {
   0% {
-    filter: drop-shadow(0 0 6px white);
+    filter: drop-shadow(0 0 18px white);
   }
   100% {
-    filter: drop-shadow(0 0 12px white);
+    filter: drop-shadow(0 0 35px white);
+  }
+}
+@keyframes upDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 
