@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ganesh Khatiwada - Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles-updated.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ganesh Khatiwada - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
 <body>
   <header>
     <div class="logo-glow">.fiftytwo</div>
     <nav>
-      <a href="#">More Me</a>
-      <a href="#">Projects</a>
+      <a href="#more-me">More Me</a>
+      <a href="#blogs">Blogs</a>
+      <a href="#projects">Projects</a>
       <a href="#">Download CV</a>
+      <a href="notes.html">Notes</a>
       <span class="w-5 h-5 bg-white rounded-full"></span>
     </nav>
     <div class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
@@ -22,9 +24,11 @@
       <div></div>
     </div>
     <div class="mobile-nav" id="mobileNav">
-      <a href="#">More Me</a>
-      <a href="#">Projects</a>
+      <a href="#more-me" class="smooth-scroll">More Me</a>
+      <a href="#blogs" class="smooth-scroll">Blogs</a>
+      <a href="#projects" class="smooth-scroll">Projects</a>
       <a href="#">Download CV</a>
+      <a href="notes.html">Notes</a>
     </div>
   </header>
   <main>
@@ -36,8 +40,8 @@
         <h1>GaNesh Khatiwada</h1>
         <p>100% human,<br />verified by captcha!!</p>
         <div class="hire-buttons">
-          <button>Don't Hire</button>
-          <button>Don't Hire</button>
+          <button>HEHE</button>
+          <button>HMM</button>
         </div>
       </div>
       <div class="social-icons" id="socialIcons">
@@ -52,7 +56,203 @@
   <div class="scroll-arrow-container" aria-hidden="true">
     <div class="scroll-arrow"></div>
   </div>
-  <footer><div class="hehe">HEHE</div></footer>
+  <footer></footer>
+
+  <div class="gradient-container">
+    <div id="projects" class="section-gradient">
+      <h2>Projects</h2>
+      <div class="projects-cards">
+        <div class="project-card">
+          <h3>Personal Budget Tracker</h3>
+        </div>
+        <div class="project-card">
+          <h3>Recipe Finder</h3>
+        </div>
+        <div class="project-card">
+          <h3>Workout Planner</h3>
+        </div>
+        <div class="project-card">
+          <h3>Language Flashcards</h3>
+        </div>
+      </div>
+    </div>
+
+    <div id="blogs" class="section-gradient">
+      <h2>Blogs</h2>
+      <div class="blogs-container">
+        <div class="blogs-left">
+          <div class="projects-cards blogs-cards">
+            <div class="blog-card">
+              <div class="blog-thumbnail">
+                <img src="https://picsum.photos/80/80?random=3" alt="Basketball Training Tips" />
+              </div>
+              <div class="blog-text">
+                <div class="blog-date">Published: Feb 10, 2024</div>
+                <div class="blog-title">Basketball Training Tips</div>
+                <div class="blog-subtitle">Improve your game with these essential training tips.</div>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="blog-thumbnail">
+                <img src="https://picsum.photos/80/80?random=4" alt="Top 10 Football Moments of 2023" />
+              </div>
+              <div class="blog-text">
+                <div class="blog-date">Published: Jan 15, 2024</div>
+                <div class="blog-title">Top 10 Football Moments of 2023</div>
+                <div class="blog-subtitle">A look back at the most memorable football moments of the year.</div>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="blog-thumbnail">
+                <img src="https://picsum.photos/80/80?random=5" alt="The Rise of Esports" />
+              </div>
+              <div class="blog-text">
+                <div class="blog-date">Published: Apr 25, 2024</div>
+                <div class="blog-title">The Rise of Esports</div>
+                <div class="blog-subtitle">Exploring the booming industry of competitive gaming.</div>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="blog-thumbnail">
+                <img src="https://picsum.photos/80/80?random=6" alt="Healthy Eating Habits" />
+              </div>
+              <div class="blog-text">
+                <div class="blog-date">Published: Apr 18, 2024</div>
+                <div class="blog-title">Healthy Eating Habits</div>
+                <div class="blog-subtitle">Tips and tricks for maintaining a balanced diet.</div>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="blog-thumbnail">
+                <img src="https://picsum.photos/80/80?random=7" alt="Travel on a Budget" />
+              </div>
+              <div class="blog-text">
+                <div class="blog-date">Published: Apr 10, 2024</div>
+                <div class="blog-title">Travel on a Budget</div>
+                <div class="blog-subtitle">How to explore the world without breaking the bank.</div>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="blog-thumbnail">
+                <img src="https://picsum.photos/80/80?random=8" alt="Mindfulness Meditation" />
+              </div>
+              <div class="blog-text">
+                <div class="blog-date">Published: Apr 5, 2024</div>
+                <div class="blog-title">Mindfulness Meditation</div>
+                <div class="blog-subtitle">Practicing mindfulness for a healthier mind.</div>
+              </div>
+            </div>
+            <div class="blog-card hidden-blog-card" style="display:none;">
+              <div class="blog-thumbnail">
+                <img src="https://picsum.photos/80/80?random=9" alt="The Future of AI" />
+              </div>
+              <div class="blog-text">
+                <div class="blog-date">Published: May 1, 2024</div>
+                <div class="blog-title">The Future of AI</div>
+                <div class="blog-subtitle">Exploring advancements and ethical considerations in AI.</div>
+              </div>
+            </div>
+            <div class="blog-card hidden-blog-card" style="display:none;">
+              <div class="blog-thumbnail">
+                <img src="https://picsum.photos/80/80?random=10" alt="Sustainable Living Tips" />
+              </div>
+              <div class="blog-text">
+                <div class="blog-date">Published: May 3, 2024</div>
+                <div class="blog-title">Sustainable Living Tips</div>
+                <div class="blog-subtitle">How to reduce your carbon footprint effectively.</div>
+              </div>
+            </div>
+            <div class="blog-card hidden-blog-card" style="display:none;">
+              <div class="blog-thumbnail">
+                <img src="https://picsum.photos/80/80?random=11" alt="Remote Work Best Practices" />
+              </div>
+              <div class="blog-text">
+                <div class="blog-date">Published: May 5, 2024</div>
+                <div class="blog-title">Remote Work Best Practices</div>
+                <div class="blog-subtitle">Tips for staying productive and balanced while working remotely.</div>
+              </div>
+            </div>
+            <div class="blog-card hidden-blog-card" style="display:none;">
+              <div class="blog-thumbnail">
+                <img src="https://picsum.photos/80/80?random=12" alt="Travel Photography Guide" />
+              </div>
+              <div class="blog-text">
+                <div class="blog-date">Published: May 7, 2024</div>
+                <div class="blog-title">Travel Photography Guide</div>
+                <div class="blog-subtitle">Capturing stunning photos on your travels.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-right">
+            <div class="latest-blog-detail">
+              <div class="blog-details-group">
+                <div class="upper-div" style="display:flex; gap:1rem; align-items:flex-start;">
+                  <div class="blog-thumbnail">
+                    <img src="https://cdn.vox-cdn.com/thumbor/nnTC0RosGGttFZz12AeACVHdaw4=/0x0:2853x1902/1520x1013/filters:focal(1199x723:1655x1179):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/74102172/2214518616.0.jpg" alt="Ansu Fati" />
+                  </div>
+                  <div class="title-subtitle">
+                    <div class="blog-date">Published: May 26, 2025</div>
+                    <div class="blog-title">Gossip: Chelsea Set to Join Monaco in Race to Land Barcelona Forward Ansu Fati</div>
+                    <div class="blog-subtitle">Chelsea and Monaco are reportedly competing to sign Barcelona's forward Ansu Fati in the upcoming transfer window.</div>
+                  </div>
+                </div>
+                <div class="lower-div" style="margin-top:1rem;">
+                  <p>Ansu Fati appears to be heading towards the exit door at Barcelona following a frustrating season under Hansi Flick.
+                  
+                  The forward has seemed to be closing in on a move to Ligue 1 side Monaco, although a deal has not yet been finalised.
+                  
+                  According to COPE, Ansu also has interest from Premier League side Chelsea ahead of the summer transfer window.
+                  
+                  Fati has already enjoyed one spell in the Premier League with Brighton and it seems he could be offered another chance in the English top flight.
+                  
+                  It’s not clear where he would prefer to play his football next season, but it had previously been reported that he had given the green light to a move to Monaco.
+                  
+                  Flick has been asked about Fati’s future but insisted the next step was down to the player.
+                  
+                  “It’s not my decision; he has a contract, and he’ll make the decision,” he told reporters before the Athletic Club win. “Whenever he wants to talk to me, we’ll talk, but he decides.”  
+                  
+                  Mendes is thought to be in Barca to discuss Lamine Yamal’s contract renewal but Fati’s future also needs to be resolved.</p>
+                  <hr style="border: 1.5px solid #333;">
+                </div>
+              </div>
+            </div>
+            <div class="latest-blog-detail" style="margin-top: 2rem;">
+              <hr style="border: 1px solid #ccc; margin-bottom: 1rem;">
+              <div class="blog-details-group">
+                <div class="upper-div" style="display:flex; gap:1rem; align-items:flex-start;">
+                  <div class="blog-thumbnail">
+                    <img src="https://picsum.photos/160/160?random=4" alt="Top 10 Football Moments of 2023" />
+                  </div>
+                  <div class="title-subtitle">
+                    <div class="blog-date">Published: Jan 15, 2024</div>
+                    <div class="blog-title">Top 10 Football Moments of 2023</div>
+                    <div class="blog-subtitle">A look back at the most memorable football moments of the year.</div>
+                  </div>
+                </div>
+        </div>
+      </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="more-me" class="section-gradient">
+      <h2>More Me</h2>
+      <div class="projects-cards">
+        <div class="more-me-content" style="width: 100%;">
+          <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+          <p><strong>Email:</strong> <a href="mailto:random.email@example.com">random.email@example.com</a></p>
+          <div class="social-icons">
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" /></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" /></a>
+            <a href="mailto:random.email@example.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" /></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

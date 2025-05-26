@@ -21,13 +21,24 @@ header, footer {
   margin: 0 auto;
   width: 100%;
 }
+
 header {
-  padding: 1.25rem 1.25rem;
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+header {
+  padding: 0.5rem 1.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100vw;
   z-index: 10;
+  background-color: #000;
 }
 .logo-glow {
   font-family: 'Poppins', sans-serif;
@@ -98,6 +109,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 4rem;
 }
 
 .card {
@@ -121,6 +133,7 @@ main {
   scrollbar-width: none;
   position: relative;
   z-index: 1;
+  margin-top: 60px;
 }
 .card::-webkit-scrollbar {
   display: none;
@@ -314,4 +327,267 @@ margin-top: 60px;
 }
 #footer{
 align-items: center;
+}
+
+/* Added project section styles from old style.css */
+.section-gradient {
+  padding: 2rem;
+  background: transparent;
+  color: black;
+  text-align: center;
+  margin-top: 2rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+#blogs.section-gradient, #more-me.section-gradient {
+  border-right: none;
+}
+.blogs-container h2 {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+}
+.blogs-cards {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0;
+  box-shadow: none;
+}
+
+.blogs-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-direction: row;
+}
+
+@media (max-width: 640px) {
+  .blogs-container {
+    flex-direction: column;
+  }
+}
+
+.blogs-left {
+  flex: 1;
+  max-width: 400px;
+  padding-left: 1rem;
+}
+
+.blogs-right {
+  flex: 1.5;
+  background: white;
+  border-radius: 15px;
+  padding: 1rem;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  height: auto;
+  align-self: flex-start;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.latest-blog-detail {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.latest-blog-detail .blog-thumbnail {
+  width: 160px;
+  height: 160px;
+  border-radius: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.latest-blog-detail .blog-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.latest-blog-detail .blog-text {
+  flex: 1;
+}
+
+.latest-blog-detail .blog-text p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #333;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.blog-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  color: black;
+  border-radius: 12px;
+  padding: 0.5rem;
+  width: 350px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-thumbnail {
+  width: 80px;
+  height: 80px;
+  background-color: #ddd;
+  border-radius: 12px;
+  flex-shrink: 0;
+  margin-right: 1rem;
+  overflow: hidden;
+}
+.blog-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.blog-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+  text-align: left;
+  padding-left: 8px;
+  padding-right: 8px;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  box-sizing: border-box;
+}
+
+.blog-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+#more-me.section-gradient {
+  background: transparent;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 15px;
+  color: black;
+}
+
+.blog-date {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: #888;
+  margin-bottom: 0.15rem;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: left;
+}
+
+.section-gradient h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.gradient-container {
+  background: linear-gradient(to right, #ffffff, #ddd3ed);
+  padding: 2rem;
+  border-radius: 40px 40px 15px 15px;
+  color: black;
+  margin-top: 2rem;
+}
+.main-gradient-container {
+  background: linear-gradient(to right, #ffffff, #ddd3ed);
+  padding: 2rem;
+  border-radius: 40px 40px 15px 15px;
+  color: black;
+  margin-top: 2rem;
+}
+.projects-cards {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  box-shadow: none;
+}
+
+.projects-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: white;
+  color: black;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+/* Hide detailed blog on mobile view */
+@media (max-width: 768px) {
+  .blogs-right {
+    display: none;
+  }
 }
