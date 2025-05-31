@@ -1,32 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const loadMoreBtn = document.getElementById('loadMoreBtn');
-  const hiddenBlogCards = document.querySelectorAll('.hidden-blog-card');
-
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', () => {
-      const isHidden = hiddenBlogCards[0].style.display === 'none' || hiddenBlogCards[0].style.display === '';
-      hiddenBlogCards.forEach(card => {
-        card.style.display = isHidden ? 'block' : 'none';
-      });
-      loadMoreBtn.textContent = isHidden ? 'Load Less' : 'Load More';
-    });
-  }
-
+  console.log('DOMContentLoaded event fired');
   // Hamburger menu toggle
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
 
   hamburger.addEventListener('click', () => {
-    const isShown = mobileNav.classList.toggle('show');
-    hamburger.classList.toggle('active');
-    hamburger.setAttribute('aria-expanded', isShown);
-  });
-
-  hamburger.addEventListener('keydown', e => {
-    if(e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      hamburger.click();
-    }
+    const isActive = mobileNav.classList.toggle('show');
+    hamburger.classList.toggle('active', isActive);
+    hamburger.setAttribute('aria-expanded', isActive);
   });
 
   // Hide mobile nav when clicking outside
@@ -41,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.setAttribute('aria-expanded', false);
       }
     }
-  });
+  }
+);
 
   // Smooth scroll animation for nav menu links
   document.querySelectorAll('nav a[href^="#"]').forEach(link => {
@@ -65,31 +47,38 @@ document.addEventListener('DOMContentLoaded', () => {
   // Flip image horizontally at first time
   floatingPenguin.style.transform = 'translateX(0) scaleX(-1)';
   floatingPenguin.style.display = 'none'; // Hide initially
-  // Append penguin inside the div containing the Notes menu item
-  const navDiv = document.querySelector('nav div[style*="background-color"]');
-  if (navDiv) {
-    navDiv.appendChild(floatingPenguin);
-  } else {
-    document.body.appendChild(floatingPenguin);
+
+    // Append penguin inside the nav element
+    const navElement = document.querySelector('nav');
+    if (navElement) {
+      navElement.appendChild(floatingPenguin);
+      console.log('Appended floatingPenguin inside nav element');
+    } else {
+      document.body.appendChild(floatingPenguin);
+      console.log('Appended floatingPenguin inside body');
+    }
+
+  function tiltIn() {
+    floatingPenguin.style.animation = 'tiltInRight 0.5s forwards';
+    floatingPenguin.style.opacity = '1';
   }
 
-    function tiltIn() {
-      floatingPenguin.style.animation = 'tiltInRight 0.5s forwards';
-    }
+  function tiltOut() {
+    floatingPenguin.style.animation = 'tiltOutRight 0.5s forwards';
+    floatingPenguin.style.opacity = '0';
+  }
 
-    function tiltOut() {
-      floatingPenguin.style.animation = 'tiltOutRight 0.5s forwards';
-    }
-
-    function moveToEdge() {
-      const y = Math.random() * (window.innerHeight - floatingPenguin.clientHeight);
-      floatingPenguin.style.right = `-${floatingPenguin.clientWidth / 4}px`;
-      floatingPenguin.style.left = '';
-      floatingPenguin.style.top = `${y}px`;
-      floatingPenguin.classList.remove('peek-left');
-      floatingPenguin.classList.add('peek-right');
-      floatingPenguin.style.transform = 'translateX(0) scaleX(1)';
-    }
+  function moveToEdge() {
+    const x = Math.random() * (window.innerWidth - floatingPenguin.clientWidth);
+    const y = Math.random() * (window.innerHeight - floatingPenguin.clientHeight);
+    floatingPenguin.style.left = `${x}px`;
+    floatingPenguin.style.top = `${y}px`;
+    floatingPenguin.style.right = '';
+    floatingPenguin.classList.remove('peek-left');
+    floatingPenguin.classList.add('peek-right');
+    floatingPenguin.style.transform = 'translateX(0) scaleX(1)';
+    console.log(`Moved floatingPenguin to random position: left ${floatingPenguin.style.left}, top ${floatingPenguin.style.top}`);
+  }
 
   function animationCycle() {
     tiltIn();
@@ -104,11 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
-  // Start the animation cycle after 30 seconds delay initially
+  // Start the animation cycle after 1 second delay for quicker testing
   setTimeout(() => {
     floatingPenguin.style.display = 'block';
     moveToEdge();
     animationCycle();
-  }, 30000);
+  }, 1000);
   }
 });
