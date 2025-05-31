@@ -55,51 +55,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Floating penguin image
-  const floatingPenguin = document.createElement('img');
-  floatingPenguin.id = 'floatingPenguin';
-  floatingPenguin.src = 'peng.png';
-  floatingPenguin.alt = 'Floating Penguin';
-  // Flip image horizontally at first time
-  floatingPenguin.style.transform = 'translateX(0) scaleX(-1)';
-  floatingPenguin.style.display = 'none'; // Hide initially
-  document.body.appendChild(floatingPenguin);
+  // Only run penguin animation on homepage
+  if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+    // Floating penguin image
+    const floatingPenguin = document.createElement('img');
+    floatingPenguin.id = 'floatingPenguin';
+    floatingPenguin.src = 'peng.png';
+    floatingPenguin.alt = 'Floating Penguin';
+    // Flip image horizontally at first time
+    floatingPenguin.style.transform = 'translateX(0) scaleX(-1)';
+    floatingPenguin.style.display = 'none'; // Hide initially
+    document.body.appendChild(floatingPenguin);
 
-  function tiltIn() {
-    floatingPenguin.style.animation = 'tiltInRight 0.5s forwards';
-  }
+    function tiltIn() {
+      floatingPenguin.style.animation = 'tiltInRight 0.5s forwards';
+    }
 
-  function tiltOut() {
-    floatingPenguin.style.animation = 'tiltOutRight 0.5s forwards';
-  }
+    function tiltOut() {
+      floatingPenguin.style.animation = 'tiltOutRight 0.5s forwards';
+    }
 
-  function moveToEdge() {
-    const y = Math.random() * (window.innerHeight - floatingPenguin.clientHeight);
-    floatingPenguin.style.right = `-${floatingPenguin.clientWidth / 4}px`;
-    floatingPenguin.style.left = '';
-    floatingPenguin.style.top = `${y}px`;
-    floatingPenguin.classList.remove('peek-left');
-    floatingPenguin.classList.add('peek-right');
-    floatingPenguin.style.transform = 'translateX(0) scaleX(1)';
-  }
+    function moveToEdge() {
+      const y = Math.random() * (window.innerHeight - floatingPenguin.clientHeight);
+      floatingPenguin.style.right = `-${floatingPenguin.clientWidth / 4}px`;
+      floatingPenguin.style.left = '';
+      floatingPenguin.style.top = `${y}px`;
+      floatingPenguin.classList.remove('peek-left');
+      floatingPenguin.classList.add('peek-right');
+      floatingPenguin.style.transform = 'translateX(0) scaleX(1)';
+    }
 
-  function animationCycle() {
-    tiltIn();
-    setTimeout(() => {
-      tiltOut();
+    function animationCycle() {
+      tiltIn();
       setTimeout(() => {
-        moveToEdge();
+        tiltOut();
         setTimeout(() => {
-          animationCycle();
+          moveToEdge();
+          setTimeout(() => {
+            animationCycle();
+          }, 5000);
         }, 5000);
-      }, 5000);
-    }, 10000);
-  }
+      }, 3000);
+    }
 
-  // Start the animation cycle after 5 seconds delay
-  setTimeout(() => {
-    floatingPenguin.style.display = 'block';
-    moveToEdge();
-    animationCycle();
-  }, 5000);
+    // Start the animation cycle after 5 seconds delay
+    setTimeout(() => {
+      floatingPenguin.style.display = 'block';
+      moveToEdge();
+      animationCycle();
+    }, 5000);
+  }
 });

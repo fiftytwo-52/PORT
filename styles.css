@@ -335,6 +335,9 @@ main {
     height: 36px;
     font-size: 0.8rem;
   }
+  #floatingPenguin {
+    width: 50px;
+  }
 }
 
 #floatingPenguin {
