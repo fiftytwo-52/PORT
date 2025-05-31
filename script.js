@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   hamburger.addEventListener('click', () => {
     const isShown = mobileNav.classList.toggle('show');
+    hamburger.classList.toggle('active');
     hamburger.setAttribute('aria-expanded', isShown);
   });
 
@@ -25,6 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if(e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       hamburger.click();
+    }
+  });
+
+  // Hide mobile nav when clicking outside
+  document.addEventListener('click', (event) => {
+    const isClickInsideNav = mobileNav.contains(event.target);
+    const isClickOnHamburger = hamburger.contains(event.target);
+
+    if (!isClickInsideNav && !isClickOnHamburger) {
+      if (mobileNav.classList.contains('show')) {
+        mobileNav.classList.remove('show');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+      }
     }
   });
 
@@ -39,4 +54,52 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Floating penguin image
+  const floatingPenguin = document.createElement('img');
+  floatingPenguin.id = 'floatingPenguin';
+  floatingPenguin.src = 'peng.png';
+  floatingPenguin.alt = 'Floating Penguin';
+  // Flip image horizontally at first time
+  floatingPenguin.style.transform = 'translateX(0) scaleX(-1)';
+  floatingPenguin.style.display = 'none'; // Hide initially
+  document.body.appendChild(floatingPenguin);
+
+  function tiltIn() {
+    floatingPenguin.style.animation = 'tiltInRight 0.5s forwards';
+  }
+
+  function tiltOut() {
+    floatingPenguin.style.animation = 'tiltOutRight 0.5s forwards';
+  }
+
+  function moveToEdge() {
+    const y = Math.random() * (window.innerHeight - floatingPenguin.clientHeight);
+    floatingPenguin.style.right = `-${floatingPenguin.clientWidth / 4}px`;
+    floatingPenguin.style.left = '';
+    floatingPenguin.style.top = `${y}px`;
+    floatingPenguin.classList.remove('peek-left');
+    floatingPenguin.classList.add('peek-right');
+    floatingPenguin.style.transform = 'translateX(0) scaleX(1)';
+  }
+
+  function animationCycle() {
+    tiltIn();
+    setTimeout(() => {
+      tiltOut();
+      setTimeout(() => {
+        moveToEdge();
+        setTimeout(() => {
+          animationCycle();
+        }, 5000);
+      }, 5000);
+    }, 10000);
+  }
+
+  // Start the animation cycle after 5 seconds delay
+  setTimeout(() => {
+    floatingPenguin.style.display = 'block';
+    moveToEdge();
+    animationCycle();
+  }, 5000);
 });
