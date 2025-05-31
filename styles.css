@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght,ROND@100..900,4&display=swap');
 
 * {
   box-sizing: border-box;
@@ -41,15 +42,18 @@ header {
   background-color: #000;
 }
 .logo-glow {
-  font-family: 'Poppins', sans-serif;
-  border: 1px solid white;
-  padding: 0.5rem 1.5rem;
+  font-family: 'Doto', sans-serif;
+  font-weight: bold;
+  border: 0.5px solid white;
+  padding: 2.5px;
   border-radius: 9999px;
-  transition: box-shadow 0.3s ease;
   cursor: default;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
+/* Keep hover glow effect */
 .logo-glow:hover {
   box-shadow: 0 0 15px 5px white;
+  border-color: white;
 }
 
 nav {
@@ -118,12 +122,13 @@ nav a:hover {
 }
 
 main {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 4rem;
+  margin-top: 0;
+  min-height: 100vh;
 }
 
 .card {
@@ -147,7 +152,6 @@ main {
   scrollbar-width: none;
   position: relative;
   z-index: 1;
-  margin-top: 60px;
 }
 .card::-webkit-scrollbar {
   display: none;
@@ -268,11 +272,28 @@ main {
 
 /* Scroll down arrow styles */
 .scroll-arrow-container {
-  margin-top: 100px;
+  margin-top: -30px;
   display: flex;
   justify-content: center;
   width: 100%;
   animation: upDown 2s ease-in-out infinite;
+}
+
+.green_dot {
+  width: 6px;
+  height: 6px;
+  background-color: green;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 .scroll-arrow {
   width: 18px;
@@ -336,7 +357,7 @@ main {
     font-size: 0.8rem;
   }
   #floatingPenguin {
-    width: 50px;
+    width: 30px;
   }
 }
 
@@ -425,3 +446,25 @@ main {
     left: 0;
   }
 }
+
+.red-div {
+  width: 100%;
+  height: 500px;
+  background-color: red;
+  margin-top: 20px;
+}
+
+.blue-div {
+  width: 100%;
+  height: 300px;
+  background-color: blue;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+

@@ -57,15 +57,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Only run penguin animation on homepage
   if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
-    // Floating penguin image
-    const floatingPenguin = document.createElement('img');
-    floatingPenguin.id = 'floatingPenguin';
-    floatingPenguin.src = 'peng.png';
-    floatingPenguin.alt = 'Floating Penguin';
-    // Flip image horizontally at first time
-    floatingPenguin.style.transform = 'translateX(0) scaleX(-1)';
-    floatingPenguin.style.display = 'none'; // Hide initially
+  // Floating penguin image
+  const floatingPenguin = document.createElement('img');
+  floatingPenguin.id = 'floatingPenguin';
+  floatingPenguin.src = 'peng.png';
+  floatingPenguin.alt = 'Floating Penguin';
+  // Flip image horizontally at first time
+  floatingPenguin.style.transform = 'translateX(0) scaleX(-1)';
+  floatingPenguin.style.display = 'none'; // Hide initially
+  // Append penguin inside the div containing the Notes menu item
+  const navDiv = document.querySelector('nav div[style*="background-color"]');
+  if (navDiv) {
+    navDiv.appendChild(floatingPenguin);
+  } else {
     document.body.appendChild(floatingPenguin);
+  }
 
     function tiltIn() {
       floatingPenguin.style.animation = 'tiltInRight 0.5s forwards';
@@ -85,24 +91,24 @@ document.addEventListener('DOMContentLoaded', () => {
       floatingPenguin.style.transform = 'translateX(0) scaleX(1)';
     }
 
-    function animationCycle() {
-      tiltIn();
-      setTimeout(() => {
-        tiltOut();
-        setTimeout(() => {
-          moveToEdge();
-          setTimeout(() => {
-            animationCycle();
-          }, 5000);
-        }, 5000);
-      }, 3000);
-    }
-
-    // Start the animation cycle after 5 seconds delay
+  function animationCycle() {
+    tiltIn();
     setTimeout(() => {
-      floatingPenguin.style.display = 'block';
-      moveToEdge();
-      animationCycle();
-    }, 5000);
+      tiltOut();
+      setTimeout(() => {
+        moveToEdge();
+        setTimeout(() => {
+          animationCycle();
+        }, 9000);
+      }, 6000);
+    }, 3000);
+  }
+
+  // Start the animation cycle after 30 seconds delay initially
+  setTimeout(() => {
+    floatingPenguin.style.display = 'block';
+    moveToEdge();
+    animationCycle();
+  }, 30000);
   }
 });
