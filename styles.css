@@ -45,7 +45,7 @@ header {
   font-family: 'Doto', sans-serif;
   font-weight: bold;
   border: 0.5px solid white;
-  padding: 2.5px;
+  padding: 4.5px;
   border-radius: 9999px;
   cursor: default;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
@@ -321,21 +321,21 @@ main {
   }
 }
 
-@media (max-width: 640px) {
-  nav {
-    display: none;
+/* New animations for penguin sliding in and out without tilt */
+@keyframes slideInRightNoTilt {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
   }
-  .hamburger {
-    display: flex;
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
-  .card {
-    height: 300px;
-    max-width: 700px;
-    grid-template-columns: 1fr 1.5fr;
-    grid-template-rows: auto auto auto;
-    overflow-y: auto;
-    margin-left: 1rem;
-    margin-right: 1rem;
+}
+
+@keyframes slideOutRightNoTilt {
+  0% {
+    transform: translateX(0);
   }
   .image-container img {
     height: 98%;
@@ -500,4 +500,90 @@ body::-webkit-scrollbar {
   font-size: 1rem;
   color: #ccc;
   line-height: 1.4;
+}
+
+@keyframes tiltInRight {
+  0% {
+    transform: translateX(100%) rotate(30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes tiltOutRight {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideBackInRight {
+  0% {
+    transform: translateX(100%) rotate(30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-30px) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutReverse {
+  0% {
+    transform: translateX(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutNoFade {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+    opacity: 1;
+  }
+}
+
+@keyframes tiltInLeft {
+  0% {
+    transform: translateX(-100%) rotate(-30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes tiltOutLeft {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%) rotate(-30deg);
+    opacity: 0;
+  }
 }
