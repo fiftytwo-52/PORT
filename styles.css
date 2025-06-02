@@ -78,6 +78,16 @@ nav a:hover {
   cursor: pointer;
   gap: 0.25rem;
 }
+
+/* Responsive styles for hamburger menu */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
 .hamburger div {
   width: 24px;
   height: 3px;
@@ -321,46 +331,52 @@ main {
   }
 }
 
-/* New animations for penguin sliding in and out without tilt */
-@keyframes slideInRightNoTilt {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
+/* Styles for floating penguin image */
+#floatingPenguin {
+  position:fixed;
+  right: 0;
+  bottom: 20%;
+  width: 80px;
+  cursor: pointer;
+  z-index: 1000;
+  /* Start hidden off screen with initial tilt */
+  transform: translateX(100%) rotate(40deg);
+  opacity: 0;
+}
+
+#floatingPenguin.slide-in {
+  animation: slideInRight 0.5s forwards;
+}
+
+#floatingPenguin.slide-out {
+  animation: slideOutRight 0.5s forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%) rotate(10deg);
+    opacity: 0.3;
   }
-  100% {
-    transform: translateX(0);
+  to {
+    transform: translateX(20%) rotate(-20deg);
     opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(30%) rotate(-20deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%) rotate(20deg);
+    opacity: 0;
   }
 }
 
 @keyframes slideOutRightNoTilt {
   0% {
     transform: translateX(0);
-  }
-  .image-container img {
-    height: 98%;
-    width: auto;
-  }
-  .social-icons {
-    margin-top: 150px;
-  }
-  .hire-buttons {
-    flex-direction: row;
-    align-items: center;
-  }
-  .hire-buttons button {
-    width: fit-content;
-  }
-  .now-hire-btn {
-    width: 110px;
-    height: 36px;
-    font-size: 0.8rem;
-  }
-  
-  .blue-div {
-    height: auto;
-    width: 95%;
-    padding: 5px;
   }
 }
 .red-div {
@@ -500,90 +516,4 @@ body::-webkit-scrollbar {
   font-size: 1rem;
   color: #ccc;
   line-height: 1.4;
-}
-
-@keyframes tiltInRight {
-  0% {
-    transform: translateX(100%) rotate(30deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes tiltOutRight {
-  0% {
-    transform: translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%) rotate(30deg);
-    opacity: 0;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes slideBackInRight {
-  0% {
-    transform: translateX(100%) rotate(30deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(-30px) rotate(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes slideOutReverse {
-  0% {
-    transform: translateX(-10px) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%) rotate(30deg);
-    opacity: 0;
-  }
-}
-
-@keyframes slideOutNoFade {
-  0% {
-    transform: translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%) rotate(30deg);
-    opacity: 1;
-  }
-}
-
-@keyframes tiltInLeft {
-  0% {
-    transform: translateX(-100%) rotate(-30deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes tiltOutLeft {
-  0% {
-    transform: translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100%) rotate(-30deg);
-    opacity: 0;
-  }
 }
