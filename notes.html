@@ -2,36 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes - GaNesh Khatiwada</title>
+    <!-- Google Fonts: Poppins for a modern, clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Google Fonts: Doto for the logo glow effect -->
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght,ROND@100..900,4&display=swap" rel="stylesheet" />
+    <!-- Tailwind CSS CDN for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="notes">
-    <header>
-      <div class="logo-glow">.fiftytwo</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="notes.html" aria-current="page">Notes</a>
+  <body class="bg-[#0a1128] text-white font-[Poppins] antialiased min-h-screen flex flex-col overflow-x-hidden">
+    <!-- Header Section (consistent with index.html) -->
+    <header class="flex justify-between items-center p-4 md:px-8 bg-[#0a1128] shadow-lg sticky top-0 w-full z-50">
+      <a href="index.html" class="text-3xl font-bold text-[#fca311] tracking-wider logo-glow border border-white p-1 text-base rounded-full">.fiftytwo</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:block">
+        <ul class="flex items-center space-x-5 bg-[#14213d] p-2 rounded-full shadow-md">
+          <li><a href="index.html" class="text-white hover:text-[#fca311] hover:scale-105 transition duration-300 px-3 py-1 rounded-full">Home</a></li>
+          <li><a href="notes.html" aria-current="page" class="text-white hover:text-[#fca311] hover:scale-105 transition duration-300 px-3 py-1 rounded-full">Notes</a></li>
+          <li class="green_dot"></li>
+        </ul>
       </nav>
-      <div class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
+
+      <!-- Hamburger Icon for Mobile -->
+      <button class="hamburger md:hidden focus:outline-none" id="hamburger" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
         <div></div>
         <div></div>
         <div></div>
-      </div>
-      <div class="mobile-nav" id="mobileNav">
-        <a href="index.html">Home</a>
-        <a href="notes.html" aria-current="page">Notes</a>
-      </div>
+      </button>
+
+      <!-- Mobile Navigation Overlay -->
+      <nav id="mobileNav" class="mobile-nav fixed top-0 right-0 h-full w-64 bg-[#14213d] shadow-xl z-40 flex flex-col items-center justify-center space-y-6 md:hidden">
+        <a href="index.html" class="text-white text-xl hover:text-[#fca311] transition duration-300" onclick="document.getElementById('mobileNav').classList.remove('active'); document.getElementById('hamburger').classList.remove('active');">Home</a>
+        <a href="notes.html" aria-current="page" class="text-white text-xl hover:text-[#fca311] transition duration-300" onclick="document.getElementById('mobileNav').classList.remove('active'); document.getElementById('hamburger').classList.remove('active');">Notes</a>
+      </nav>
     </header>
-    <main>
-      <iframe src="https://leather-spandex-8b5.notion.site/ebd/ebdeb4f2e65f41f49202167ba38ddca6" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
+
+    <main class="flex-grow container mx-auto px-4 py-8 flex flex-col items-center justify-center">
+      <div class="w-full max-w-4xl bg-[#14213d] rounded-xl shadow-lg overflow-hidden border border-white/20 p-4 sm:p-6">
+        <!-- Notion iframe for notes -->
+        <iframe src="https://leather-spandex-8b5.notion.site/ebd/ebdeb4f2e65f41f49202167ba38ddca6" class="w-full min-h-[600px] h-[70vh] rounded-lg" frameborder="0" allowfullscreen></iframe>
+      </div>
+      
+      <!-- Take MCQ Test Button -->
+      <div class="text-center mt-8 mb-4">
+        <a href="Quiz/chapters.html" class="inline-block bg-[#fca311] text-[#14213d] font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-amber-600 transition duration-300 transform hover:scale-105">
+          Take MCQ Test
+        </a>
+      </div>
     </main>
-    <script src="script.js"></script>
-  <div style="text-align: center; margin-bottom: 0.5rem;">
-    <a href="Quiz/chapters.html" style="display: inline-block; padding: 0.5rem 1rem; background-color: #444; color: #fff; text-decoration: none; border-radius: 4px;">Take MCQ Test</a>
-  </div>
-  <footer style="text-align: center; padding: 0.5rem; font-size: 0.75rem; color: #ccc; background-color: #111; width: 100%;">
-    &copy; 2024 GaNesh Khatiwada. All rights reserved.
-  </footer>
+
+    <!-- Footer Section (consistent with index.html) -->
+    <footer class="text-center p-4 text-sm text-gray-400 bg-[#111827] mt-8">
+      &copy; 2024 GaNesh Khatiwada. All rights reserved.
+    </footer>
+
+    <!-- Main JavaScript file -->
+    <script src="script.js" defer></script>
   </body>
 </html>
