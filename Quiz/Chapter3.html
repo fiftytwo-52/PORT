@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3: Computer Generations Quiz - Redesigned (Scrollable)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Import Doto font for the logo */
+        @import url('https://fonts.googleapis.com/css2?family=Doto:wght,ROND@100..900,4&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Custom scrollbar for a cleaner look (optional) */
+            scrollbar-width: thin;
+            scrollbar-color: #FCA311 #14213D; /* Scrollbar thumb and track */
+        }
+        /* For Webkit browsers like Chrome, Safari */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1F2937; /* Darker track, e.g., slate-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #FCA311; /* Orange thumb */
+            border-radius: 10px;
+            border: 2px solid #1F2937; /* Padding around thumb */
+        }
+        .fade-in {
+            animation: fadeInAnimation 0.5s ease-in-out;
+        }
+        @keyframes fadeInAnimation {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom focus ring color */
+        input[type="password"]:focus, input[type="radio"]:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 2px #FCA311; /* Orange focus ring */
+        }
+        input[type="radio"]:checked {
+            background-color: #FCA311; /* Orange for checked radio */
+            border-color: #FCA311;
+        }
+        input[type="radio"]:checked:hover {
+            background-color: #FCA311;
+            border-color: #FCA311;
+        }
+        input[type="radio"]:checked:focus {
+            background-color: #FCA311;
+            border-color: #FCA311;
+            box-shadow: 0 0 0 2px #FCA311;
+        }
+        .quiz-option-label:hover {
+            background-color: #FFFBEB; /* Very light yellow on hover */
+        }
+
+        /* Custom Header Styles from User */
+        header {
+            padding: 0.5rem 1.25rem; /* padding-top/bottom: 8px, padding-left/right: 20px */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0; /* Ensure it's pinned to the left */
+            width: 100vw;
+            max-width: 100vw; /* Explicitly set as per user, though width:100vw covers it */
+            z-index: 10; /* User specified z-index */
+            background-color: #000; /* Black background */
+            color: white; /* Default text color for header items */
+            margin: 0; /* Ensure no default margin */
+        }
+
+        .logo-glow {
+            font-family: 'Doto', sans-serif;
+            font-weight: bold;
+            border: 0.5px solid white;
+            padding: 4.5px; /* User specified padding */
+            font-size: 1rem; /* User specified font size */
+            border-radius: 9999px; /* User specified full-roundness */
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            color: white; /* Ensure logo text is white */
+            /* Added for better display of text in a tight circle/oval */
+            display: inline-block; 
+            line-height: 1.2; /* Adjust line-height for better vertical centering if needed */
+            text-align: center;
+        }
+        .logo-glow:hover {
+            box-shadow: 0 0 15px 5px white;
+            border-color: white; /* Ensure border stays white on hover */
+        }
+
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 flex flex-col items-center min-h-screen p-4 sm:p-6">
+
+    <header>
+        <div class="logo-glow">.fiftytwo</div>
+        <nav class="flex space-x-3 sm:space-x-4 text-sm sm:text-base">
+            <a href="../index.html" class="hover:text-orange-400 transition-colors duration-200">Home</a>
+            <a href="../notes.html" class="hover:text-orange-400 transition-colors duration-200">Notes</a>
+            <a href="#" class="text-orange-400 font-semibold border-b-2 border-orange-400">Quiz</a>
+        </nav>
+    </header>
+
+    <main class="bg-white w-full max-w-2xl p-6 sm:p-8 rounded-xl shadow-2xl fade-in mt-16">
+
+        <section id="intro-section" class="text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-700 mb-4">Welcome to the Computer Generations MCQ!</h1>
+            <p class="text-slate-600 mb-8 text-base sm:text-lg">
+                Test your knowledge about the different generations of computers. You'll answer all questions on one page and get your score at the end.
+            </p>
+            <button id="startQuizBtn" class="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 text-lg">
+                Start Test
+            </button>
+        </section>
+
+        <section id="auth-section" style="display: none;" class="fade-in">
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-700 mb-6 text-center">Enter Password to Begin</h2>
+            <div class="max-w-sm mx-auto">
+                <input type="password" id="passwordInput" placeholder="Enter password" autocomplete="off" class="w-full p-3 border border-slate-300 rounded-lg shadow-sm focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors duration-200 mb-3">
+                <button id="passwordSubmit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 text-lg">
+                    Enter
+                </button>
+                <p id="passwordWarning" class="text-red-500 text-sm mt-3 text-center h-5"></p>
+            </div>
+        </section>
+
+        <section id="quiz-section" style="display: none;" class="fade-in">
+            <h2 id="quizHeader" class="text-2xl sm:text-3xl font-bold text-slate-700 mb-6 text-center">MCQ Questions</h2>
+            <div id="questionContainer" class="bg-slate-50 p-6 rounded-lg shadow-inner mb-6 space-y-8">
+                </div>
+            <div class="quiz-navigation flex justify-center mt-6">
+                <button id="submitQuizBtn" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105">Submit Quiz</button>
+            </div>
+            <p id="quizWarning" class="text-red-500 text-sm mt-4 text-center h-5"></p>
+        </section>
+
+        <section id="results-section" style="display: none;" class="fade-in">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-700 mb-6 text-center">MCQ Results</h2>
+            <div id="scoreDisplay" class="text-2xl sm:text-3xl font-semibold text-orange-600 bg-orange-100 py-4 px-6 rounded-lg text-center mb-8 shadow"></div>
+            <div id="resultsSummary" class="space-y-4 mb-8">
+                </div>
+            <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+                <button id="reviewBtn" class="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105">Review Answers</button>
+                <button id="retakeBtn" class="w-full sm:w-auto bg-slate-600 hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105">Retake Quiz</button>
+            </div>
+        </section>
+
+        <p id="aiNote" class="text-xs text-slate-500 italic mt-10 text-center">This MCQ is created by AI, so there might be mistake(s).</p>
+    </main>
+
+    <footer class="w-full max-w-4xl text-center py-6 mt-8">
+        <p class="text-sm text-slate-600">&copy; <span id="currentYear"></span> fiftytwo. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // --- Password ---
+        const PASSWORD = 'wac8'; // Keep this simple for the demo
+
+        // --- Quiz Questions ---
+        const questions = [
+            { question: "Which generation used vacuum tubes?", options: ["First", "Second", "Third", "Fourth"], answer: "First" },
+            { question: "Transistors were introduced in which generation?", options: ["First", "Second", "Third", "Fourth"], answer: "Second" },
+            { question: "Which generation introduced integrated circuits (ICs)?", options: ["First", "Second", "Third", "Fourth"], answer: "Third" },
+            { question: "Microprocessors are primarily associated with which generation?", options: ["Fourth", "Third", "Second", "First"], answer: "Fourth" },
+            { question: "Which generation is characterized by the development of Artificial Intelligence (AI)?", options: ["First", "Second", "Fourth", "Fifth"], answer: "Fifth" },
+            { question: "What does AI stand for?", options: ["Automated Input", "Artificial Intelligence", "Active Internet", "Actual Interface"], answer: "Artificial Intelligence" },
+            { question: "Which generation is associated with current and future computers, focusing on parallel processing and AI?", options: ["Third", "Fourth", "Fifth", "Second"], answer: "Fifth" },
+            { question: "What does VLSI stand for?", options: ["Very Low Speed Integration", "Very Large Scale Integration", "Virtual Logic System Interface", "Verified Logic Signal Input"], answer: "Very Large Scale Integration" },
+            { question: "Which generation of computers was characterized by huge size, high power consumption, and slow speed?", options: ["First", "Second", "Fourth", "Fifth"], answer: "First" },
+            { question: "What is the full form of IC?", options: ["Integrated Circuit", "Internal Chip", "Interface Card", "Input Controller"], answer: "Integrated Circuit" },
+            { question: "Which generation saw the introduction of operating systems and high-level programming languages like FORTRAN and COBOL?", options: ["First", "Second", "Third", "Fourth"], answer: "Second" },
+            { question: "The concept of a 'stored program' computer was developed in which generation?", options: ["First", "Second", "Third", "Fourth"], answer: "First" },
+            { question: "What was a major advantage of transistors over vacuum tubes?", options: ["Larger size", "More heat generation", "Less reliable", "Smaller size and less power consumption"], answer: "Smaller size and less power consumption" },
+            { question: "Which generation led to the development of personal computers (PCs)?", options: ["Second", "Third", "Fourth", "Fifth"], answer: "Fourth" },
+            { question: "ULSI technology is a characteristic of which generation?", options: ["Third", "Fourth", "Fifth", "Second"], answer: "Fifth" },
+            { question: "Which of the following is an example of a first-generation computer?", options: ["IBM PC", "UNIVAC", "Apple II", "Cray-1"], answer: "UNIVAC" },
+            { question: "Batch processing was primarily used in which computer generation?", options: ["First", "Second", "Third", "Fourth"], answer: "First" },
+            { question: "The development of graphical user interfaces (GUIs) became prominent in which generation?", options: ["Second", "Third", "Fourth", "Fifth"], answer: "Fourth" },
+            { question: "Which generation is associated with the rise of the internet and networking?", options: ["Second", "Third", "Fourth", "Fifth"], answer: "Fourth" },
+            { question: "What was the main storage technology used in first-generation computers?", options: ["Magnetic core", "Magnetic drums", "Floppy disks", "Hard drives"], answer: "Magnetic drums" },
+            { question: "Which generation introduced time-sharing and multiprocessing operating systems?", options: ["First", "Second", "Third", "Fourth"], answer: "Third" },
+            { question: "Expert systems and natural language processing are key features of which generation?", options: ["Third", "Fourth", "Fifth", "Second"], answer: "Fifth" },
+            { question: "The period of the third generation of computers was roughly:", options: ["1940-1956", "1956-1963", "1964-1971", "1971-1980"], answer: "1964-1971" },
+            { question: "Which generation saw the emergence of supercomputers?", options: ["First", "Second", "Third", "Fourth"], answer: "Fourth" },
+            { question: "What is the primary characteristic of fifth-generation computers?", options: ["Vacuum tubes", "Transistors", "Integrated Circuits", "Artificial Intelligence and Parallel Processing"], answer: "Artificial Intelligence and Parallel Processing" }
+        ];
+
+        // --- DOM Elements ---
+        const introSection = document.getElementById('intro-section');
+        const startQuizBtn = document.getElementById('startQuizBtn');
+        const authSection = document.getElementById('auth-section');
+        const passwordInput = document.getElementById('passwordInput');
+        const passwordSubmitBtn = document.getElementById('passwordSubmit');
+        const passwordWarning = document.getElementById('passwordWarning');
+        const quizSection = document.getElementById('quiz-section');
+        const quizHeader = document.getElementById('quizHeader'); // Renamed from progressBar for better semantics
+        const questionContainer = document.getElementById('questionContainer');
+        const submitQuizBtn = document.getElementById('submitQuizBtn');
+        const quizWarning = document.getElementById('quizWarning');
+        const resultsSection = document.getElementById('results-section');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const resultsSummary = document.getElementById('resultsSummary');
+        const reviewBtn = document.getElementById('reviewBtn');
+        const retakeBtn = document.getElementById('retakeBtn');
+        const currentYearSpan = document.getElementById('currentYear');
+
+        // --- Quiz State ---
+        // Initialize userAnswers array with the correct length (25 questions)
+        let userAnswers = Array(questions.length).fill(null);
+        let isReviewMode = false;
+
+        // --- Initialize App ---
+        function initializeApp() {
+            showSection('intro-section');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+        }
+
+        // --- Helper function to show/hide sections ---
+        function showSection(sectionId) {
+            [introSection, authSection, quizSection, resultsSection].forEach(section => {
+                section.style.display = section.id === sectionId ? 'block' : 'none';
+            });
+            const mainElement = document.querySelector('main');
+            if (mainElement) {
+                mainElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // --- Event Listeners ---
+        startQuizBtn.addEventListener('click', () => {
+            showSection('auth-section');
+            passwordInput.value = '';
+            passwordWarning.textContent = '';
+            passwordInput.focus();
+        });
+
+        passwordSubmitBtn.addEventListener('click', handlePasswordSubmit);
+        passwordInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                handlePasswordSubmit();
+            }
+        });
+
+        function handlePasswordSubmit() {
+            const enteredPassword = passwordInput.value.trim();
+            if (enteredPassword === PASSWORD) {
+                showSection('quiz-section');
+                isReviewMode = false; 
+                // Re-initialize userAnswers array with the correct length (25 questions)
+                userAnswers = Array(questions.length).fill(null); 
+                renderAllQuestions(); // Render all questions at once
+            } else {
+                passwordWarning.textContent = "Incorrect password. Please try again.";
+                passwordInput.focus();
+                passwordInput.classList.add('animate-shake');
+                setTimeout(() => passwordInput.classList.remove('animate-shake'), 500);
+            }
+        }
+        
+        const styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = `@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s linear; }`;
+        document.head.appendChild(styleSheet);
+
+        submitQuizBtn.addEventListener('click', () => {
+            const allAnswered = userAnswers.every(answer => answer !== null);
+            if (!allAnswered) {
+                quizWarning.textContent = "Please answer all questions before submitting.";
+                // Scroll to the first unanswered question
+                const firstUnansweredIndex = userAnswers.findIndex(answer => answer === null);
+                if (firstUnansweredIndex !== -1) {
+                    const firstUnansweredQuestionElement = document.getElementById(`question-${firstUnansweredIndex}`);
+                    if (firstUnansweredQuestionElement) {
+                        firstUnansweredQuestionElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+                return;
+            }
+            quizWarning.textContent = '';
+            submitQuiz();
+        });
+
+        reviewBtn.addEventListener('click', () => {
+            showSection('quiz-section');
+            isReviewMode = true;
+            renderReviewMode();
+        });
+
+        retakeBtn.addEventListener('click', () => {
+            userAnswers = Array(questions.length).fill(null);
+            quizWarning.textContent = '';
+            passwordInput.value = '';
+            passwordWarning.textContent = '';
+            isReviewMode = false;
+            showSection('auth-section'); 
+            passwordInput.focus();
+        });
+
+        // --- Core Functions ---
+        function renderAllQuestions() {
+            questionContainer.innerHTML = ''; // Clear previous questions
+            quizHeader.textContent = 'MCQ Questions'; // Update header
+
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.id = `question-${index}`; // Add ID for scrolling
+                questionDiv.className = 'question-block p-6 rounded-lg border border-slate-200 shadow-sm bg-white'; // Style for each question block
+                questionDiv.innerHTML = `
+                    <div class="question-text text-xl font-semibold text-slate-700 mb-6">Q${index + 1}: ${q.question}</div>
+                    <div class="space-y-3">
+                        ${q.options.map((option) => `
+                            <div class="answer-option">
+                                <label class="quiz-option-label flex items-center p-3 border border-slate-300 rounded-lg hover:bg-orange-50 cursor-pointer transition-colors duration-200 has-[:checked]:bg-orange-100 has-[:checked]:border-orange-400">
+                                    <input type="radio" name="question-${index}" value="${option}" data-question-index="${index}" class="form-radio h-5 w-5 text-orange-500 border-slate-400 focus:ring-orange-500 mr-3" ${userAnswers[index] === option ? 'checked' : ''}>
+                                    <span class="text-slate-700 text-base">${option}</span>
+                                </label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                questionContainer.appendChild(questionDiv);
+            });
+
+            // Add event listeners to all newly rendered radio buttons
+            questionContainer.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', (event) => {
+                    const questionIndex = parseInt(event.target.dataset.questionIndex);
+                    userAnswers[questionIndex] = event.target.value;
+                    quizWarning.textContent = ''; // Clear warning on answer
+                });
+            });
+
+            // Ensure submit button is visible
+            submitQuizBtn.style.display = 'block'; 
+            document.querySelector('.quiz-navigation').style.display = 'flex';
+        }
+
+        function submitQuiz() {
+            const allAnswered = userAnswers.every(answer => answer !== null);
+            if (!allAnswered) {
+                quizWarning.textContent = "Please answer all questions before submitting.";
+                // Scroll to the first unanswered question
+                const firstUnansweredIndex = userAnswers.findIndex(answer => answer === null);
+                if (firstUnansweredIndex !== -1) {
+                    const firstUnansweredQuestionElement = document.getElementById(`question-${firstUnansweredIndex}`);
+                    if (firstUnansweredQuestionElement) {
+                        firstUnansweredQuestionElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+                return;
+            }
+            quizWarning.textContent = ''; 
+
+            let score = 0;
+            const detailedResults = [];
+
+            questions.forEach((q, i) => {
+                const userAnswer = userAnswers[i];
+                const isCorrect = (userAnswer === q.answer);
+                if (isCorrect) {
+                    score++;
+                }
+                detailedResults.push({
+                    question: q.question,
+                    userAnswer: userAnswer,
+                    correctAnswer: q.answer,
+                    isCorrect: isCorrect,
+                    options: q.options 
+                });
+            });
+
+            showSection('results-section');
+            scoreDisplay.textContent = `You scored ${score} out of ${questions.length}!`;
+
+            resultsSummary.innerHTML = detailedResults.map((result, index) => `
+                <div class="result-item p-4 rounded-lg shadow ${result.isCorrect ? 'bg-green-50 border-l-4 border-green-500' : 'bg-red-50 border-l-4 border-red-500'}">
+                    <strong class="block text-slate-700 mb-1">Q${index + 1}: ${result.question}</strong>
+                    <p class="user-answer text-sm ${result.isCorrect ? 'text-green-700' : 'text-red-700'}">
+                        Your Answer: ${result.userAnswer || 'Not answered'}
+                        ${result.isCorrect ? ' <span class="font-semibold">(Correct)</span>' : ''}
+                    </p>
+                    ${!result.isCorrect ? `<p class="correct-answer-feedback text-sm text-slate-600 font-semibold">Correct Answer: ${result.correctAnswer}</p>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function renderReviewMode() {
+            questionContainer.innerHTML = ''; 
+            quizHeader.textContent = 'Review Answers'; 
+            document.querySelector('.quiz-navigation').style.display = 'none'; // Hide submit button in review mode
+
+            questions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = (userAnswer === q.answer);
+
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-review-item mb-8 p-5 bg-white rounded-lg shadow-lg'; 
+                questionDiv.innerHTML = `
+                    <div class="question-text text-lg font-semibold text-slate-700 mb-4">Q${index + 1}: ${q.question}</div>
+                    <div class="space-y-2">
+                        ${q.options.map(option => {
+                            let optionClass = 'text-slate-600';
+                            let indicator = '';
+
+                            if (option === q.answer) { 
+                                optionClass = 'text-green-700 font-semibold';
+                                indicator = ' <span class="text-green-500">(Correct Answer)</span>';
+                            }
+                            if (userAnswer === option && !isCorrect) { 
+                                optionClass = 'text-red-700 font-semibold';
+                                indicator = ' <span class="text-red-500">(Your Answer - Incorrect)</span>';
+                            } else if (userAnswer === option && isCorrect) { 
+                                indicator = ' <span class="text-green-500">(Your Answer - Correct)</span>';
+                            }
+
+                            return `
+                                <div class="answer-option p-3 border rounded-md 
+                                    ${option === q.answer ? 'border-green-400 bg-green-50' : (userAnswer === option && !isCorrect ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50')}">
+                                    <label class="flex items-center cursor-default">
+                                        <input type="radio" name="review_q${index}" value="${option}" 
+                                               class="form-radio h-4 w-4 mr-2 
+                                               ${option === q.answer ? 'text-green-500' : (userAnswer === option ? (isCorrect ? 'text-green-500' : 'text-red-500') : 'text-slate-400')}" 
+                                               ${userAnswer === option ? 'checked' : ''} disabled>
+                                        <span class="${optionClass}">${option}</span>
+                                        ${indicator}
+                                    </label>
+                                </div>`;
+                        }).join('')}
+                    </div>
+                    ${userAnswer === null ? '<p class="mt-2 text-sm text-slate-500">You did not answer this question.</p>' : ''}
+                `;
+                questionContainer.appendChild(questionDiv);
+            });
+            const backButton = document.createElement('button');
+            backButton.textContent = 'Back to Summary';
+            backButton.className = 'mt-8 w-full sm:w-auto bg-slate-500 hover:bg-slate-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105';
+            backButton.onclick = () => {
+                isReviewMode = false; 
+                showSection('results-section'); 
+            };
+            questionContainer.appendChild(backButton);
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+</body>
+</html>
