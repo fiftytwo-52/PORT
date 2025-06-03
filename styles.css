@@ -5,6 +5,27 @@
   box-sizing: border-box;
 }
 
+/* Override body background and text color to black and white */
+body {
+  background-color: rgb(0, 0, 0) !important;
+  color: white !important;
+}
+
+/* Override header background color to black */
+header {
+  background-color: black !important;
+}
+
+/* Override desktop nav ul background color to black */
+nav.hidden.md\\:block ul {
+  background-color: black !important;
+}
+
+/* Override mobile nav background color to black */
+#mobileNav {
+  background-color: black !important;
+}
+
 /* Logo Glow specific styles */
 .logo-glow {
   font-family: 'Doto', sans-serif;
@@ -44,7 +65,7 @@
 
 /* Card specific styles (reverted to original for layout and appearance) */
 .card {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgb(0, 0, 0);
   border-radius: 30px;
   box-shadow:
     0 4px 30px rgba(0, 0, 0, 0.5),
@@ -287,7 +308,7 @@
   transition: background-color 0.2s;
 }
 .message-box button:hover {
-  background-color: #e69500;
+  background-color: #000000;
 }
 
 /* Projects and Blogs sections initial hidden state and slide-up animation */
@@ -302,7 +323,7 @@
 #projects.fade-in-up, #blogs.fade-in-up {
   opacity: 1;
   transform: translateY(0);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1); /* Subtle lift effect */
+  box-shadow: 0 10px 30px rgba(234, 7, 7, 0.1); /* Subtle lift effect */
 }
 
 /* Projects section styles */
@@ -333,7 +354,7 @@
 
 /* Project card hover effect */
 .project-card {
-  background-color: #14213d; /* Darker background for distinction */
+  background-color: black; /* Changed background to black */
   padding: 15px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
@@ -350,7 +371,7 @@
 }
 .project-card:hover {
   transform: scale(1.03) translateY(-5px); /* More pronounced lift on hover */
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4); /* Stronger shadow on hover */
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4); /* Stronger shadow on hover */
 }
 
 /* Subtitle text truncation */
@@ -436,7 +457,7 @@
 }
 
 .blog-card {
-  background-color: #14213d; /* Darker background for distinction */
+  background-color: #000000; /* Darker background for distinction */
   padding: 5px;
   padding-left: 1px;
   border-radius: 10px;
@@ -501,7 +522,7 @@
 
 .detailed-blog-thumbnail {
   flex: 0 0 150px;
-  background-color: #222;
+  background-color: #000000;
   border-radius: 10px;
   height: 150px;
 }
