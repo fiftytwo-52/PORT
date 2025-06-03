@@ -1,0 +1,140 @@
+
+**1. The first generation of computers used:**
+A. Vacuum tubes
+B. Transistors
+C. Integrated circuits
+D. Microprocessors
+**Answer:** A
+
+**2. Which language was used in first-generation computers?**
+A. Assembly language
+B. High-level language
+C. Machine language
+D. C++
+**Answer:** C
+
+**3. Second generation computers used:**
+A. Vacuum tubes
+B. Transistors
+C. Integrated circuits
+D. Microprocessors
+**Answer:** B
+
+**4. Which generation introduced the use of Integrated Circuits (ICs)?**
+A. First
+B. Second
+C. Third
+D. Fourth
+**Answer:** C
+
+**5. Fourth generation computers use:**
+A. Vacuum tubes
+B. Transistors
+C. ICs
+D. Microprocessors
+**Answer:** D
+
+**6. Which of the following is not a characteristic of first-generation computers?**
+A. Very large size
+B. Low cost
+C. High power consumption
+D. Unreliable
+**Answer:** B
+
+**7. Which of the following is associated with third-generation computers?**
+A. Vacuum tubes
+B. Transistors
+C. ICs
+D. Artificial Intelligence
+**Answer:** C
+
+**8. The period of second-generation computers was:**
+A. 1940–1956
+B. 1956–1963
+C. 1964–1971
+D. 1971–Present
+**Answer:** B
+
+**9. Fifth generation computers aim to implement:**
+A. Transistors
+B. ICs
+C. Artificial Intelligence
+D. Optical fiber
+**Answer:** C
+
+**10. ENIAC is an example of which generation?**
+A. First
+B. Second
+C. Third
+D. Fourth
+**Answer:** A
+
+**11. Which component is used in the fifth generation of computers?**
+A. Vacuum tubes
+B. ICs
+C. Microprocessors
+D. ULSI technology and AI
+**Answer:** D
+
+**12. The fourth generation of computers began in:**
+A. 1964
+B. 1956
+C. 1971
+D. 1981
+**Answer:** C
+
+**13. In which generation were keyboards and monitors first used?**
+A. First
+B. Second
+C. Third
+D. Fourth
+**Answer:** C
+
+**14. Which generation is characterized by the use of VLSI technology?**
+A. First
+B. Second
+C. Fourth
+D. Fifth
+**Answer:** C
+
+**15. Which generation is still under development and research?**
+A. Fourth
+B. Fifth
+C. Third
+D. Second
+**Answer:** B
+
+**16. UNIVAC was the first computer to:**
+A. Use AI
+B. Store data
+C. Process graphics
+D. Be used for business and commercial purpose
+**Answer:** D
+
+**17. Which generation saw the development of the Internet?**
+A. First
+B. Second
+C. Fourth
+D. Fifth
+**Answer:** C
+
+**18. Transistors replaced vacuum tubes in which generation?**
+A. First
+B. Second
+C. Third
+D. Fourth
+**Answer:** B
+
+**19. The main focus of fifth-generation computers is on:**
+A. Size
+B. Speed
+C. AI and natural language processing
+D. Mechanical design
+**Answer:** C
+
+**20. The primary memory device in the first generation computers was:**
+A. RAM
+B. Magnetic drums
+C. SSD
+D. Flash memory
+**Answer:** B

@@ -1,0 +1,242 @@
+<h1>Chapter 3: Generation of computers</h1>
+      <form id="quizForm">
+        <ol>
+          <li>
+            <p>Which generation of computers used vacuum tubes?</p>
+            <label><input type="radio" name="q1" value="a" /> First Generation</label><br />
+            <label><input type="radio" name="q1" value="b" /> Second Generation</label><br />
+            <label><input type="radio" name="q1" value="c" /> Third Generation</label><br />
+            <label><input type="radio" name="q1" value="d" /> Fourth Generation</label>
+          </li>
+          <li>
+            <p>Which generation introduced transistors?</p>
+            <label><input type="radio" name="q2" value="a" /> First Generation</label><br />
+            <label><input type="radio" name="q2" value="b" /> Second Generation</label><br />
+            <label><input type="radio" name="q2" value="c" /> Third Generation</label><br />
+            <label><input type="radio" name="q2" value="d" /> Fourth Generation</label>
+          </li>
+          <li>
+            <p>Which generation used integrated circuits?</p>
+            <label><input type="radio" name="q3" value="a" /> First Generation</label><br />
+            <label><input type="radio" name="q3" value="b" /> Second Generation</label><br />
+            <label><input type="radio" name="q3" value="c" /> Third Generation</label><br />
+            <label><input type="radio" name="q3" value="d" /> Fourth Generation</label>
+          </li>
+          <li>
+            <p>Which generation is known for the use of microprocessors?</p>
+            <label><input type="radio" name="q4" value="a" /> First Generation</label><br />
+            <label><input type="radio" name="q4" value="b" /> Second Generation</label><br />
+            <label><input type="radio" name="q4" value="c" /> Third Generation</label><br />
+            <label><input type="radio" name="q4" value="d" /> Fourth Generation</label>
+          </li>
+          <li>
+            <p>Which generation computers were the largest and consumed a lot of power?</p>
+            <label><input type="radio" name="q5" value="a" /> First Generation</label><br />
+            <label><input type="radio" name="q5" value="b" /> Second Generation</label><br />
+            <label><input type="radio" name="q5" value="c" /> Third Generation</label><br />
+            <label><input type="radio" name="q5" value="d" /> Fourth Generation</label>
+          </li>
+          <li>
+            <p>Which generation saw the development of artificial intelligence?</p>
+            <label><input type="radio" name="q6" value="a" /> First Generation</label><br />
+            <label><input type="radio" name="q6" value="b" /> Second Generation</label><br />
+            <label><input type="radio" name="q6" value="c" /> Third Generation</label><br />
+            <label><input type="radio" name="q6" value="d" /> Fourth Generation</label>
+          </li>
+          <li>
+            <p>Which generation used magnetic core memory?</p>
+            <label><input type="radio" name="q7" value="a" /> First Generation</label><br />
+            <label><input type="radio" name="q7" value="b" /> Second Generation</label><br />
+            <label><input type="radio" name="q7" value="c" /> Third Generation</label><br />
+            <label><input type="radio" name="q7" value="d" /> Fourth Generation</label>
+          </li>
+          <li>
+            <p>Which generation computers were faster and more reliable than their predecessors?</p>
+            <label><input type="radio" name="q8" value="a" /> First Generation</label><br />
+            <label><input type="radio" name="q8" value="b" /> Second Generation</label><br />
+            <label><input type="radio" name="q8" value="c" /> Third Generation</label><br />
+            <label><input type="radio" name="q8" value="d" /> Fourth Generation</label>
+          </li>
+          <li>
+            <p>Which generation introduced the use of keyboards and monitors?</p>
+            <label><input type="radio" name="q9" value="a" /> First Generation</label><br />
+            <label><input type="radio" name="q9" value="b" /> Second Generation</label><br />
+            <label><input type="radio" name="q9" value="c" /> Third Generation</label><br />
+            <label><input type="radio" name="q9" value="d" /> Fourth Generation</label>
+          </li>
+          <li>
+            <p>Which generation is characterized by the use of artificial intelligence and parallel processing?</p>
+            <label><input type="radio" name="q10" value="a" /> First Generation</label><br />
+            <label><input type="radio" name="q10" value="b" /> Second Generation</label><br />
+            <label><input type="radio" name="q10" value="c" /> Third Generation</label><br />
+            <label><input type="radio" name="q10" value="d" /> Fourth Generation</label>
+          </li>
+        </ol>
+        <button type="button" id="finalizeBtn">Finalize Answer</button>
+      </form>
+      <div id="result" style="margin-top: 1rem;"></div>
+      <script>
+        const answers = {
+          q1: "a",
+          q2: "b",
+          q3: "c",
+          q4: "d",
+          q5: "a",
+          q6: "d",
+          q7: "b",
+          q8: "b",
+          q9: "b",
+          q10: "d"
+        };
+        document.getElementById("finalizeBtn").addEventListener("click", function () {
+          const form = document.getElementById("quizForm");
+          let score = 0;
+          let wrongQuestions = [];
+          for (let i = 1; i <= 10; i++) {
+            const qName = "q" + i;
+            const selected = form.elements[qName].value;
+            if (!selected) {
+              alert("Please answer all questions before finalizing.");
+              return;
+            }
+            if (selected === answers[qName]) {
+              score++;
+            } else {
+              wrongQuestions.push(i);
+            }
+          }
+          let resultHTML = "<h2>Your score: " + score + " / 10</h2>";
+          if (wrongQuestions.length > 0) {
+            resultHTML += "<h3>Wrongly answered questions and correct answers:</h3><ul>";
+            wrongQuestions.forEach(function (qNum) {
+              resultHTML += "<li>Question " + qNum + ": Correct answer is option " + answers["q" + qNum].toUpperCase() + "</li>";
+            });
+            resultHTML += "</ul>";
+          }
+          document.getElementById("result").innerHTML = resultHTML;
+        });
+      </script>
+    </main>
+=======
+    <main>
+      <div class="card quiz-card">
+        <h1>Chapter 3: Generation of computers</h1>
+        <form id="quizForm">
+          <ol>
+            <li>
+              <p class="question">Which generation of computers used vacuum tubes?</p>
+              <label><input type="radio" name="q1" value="a" /> First Generation</label>
+              <label><input type="radio" name="q1" value="b" /> Second Generation</label>
+              <label><input type="radio" name="q1" value="c" /> Third Generation</label>
+              <label><input type="radio" name="q1" value="d" /> Fourth Generation</label>
+            </li>
+            <li>
+              <p class="question">Which generation introduced transistors?</p>
+              <label><input type="radio" name="q2" value="a" /> First Generation</label>
+              <label><input type="radio" name="q2" value="b" /> Second Generation</label>
+              <label><input type="radio" name="q2" value="c" /> Third Generation</label>
+              <label><input type="radio" name="q2" value="d" /> Fourth Generation</label>
+            </li>
+            <li>
+              <p class="question">Which generation used integrated circuits?</p>
+              <label><input type="radio" name="q3" value="a" /> First Generation</label>
+              <label><input type="radio" name="q3" value="b" /> Second Generation</label>
+              <label><input type="radio" name="q3" value="c" /> Third Generation</label>
+              <label><input type="radio" name="q3" value="d" /> Fourth Generation</label>
+            </li>
+            <li>
+              <p class="question">Which generation is known for the use of microprocessors?</p>
+              <label><input type="radio" name="q4" value="a" /> First Generation</label>
+              <label><input type="radio" name="q4" value="b" /> Second Generation</label>
+              <label><input type="radio" name="q4" value="c" /> Third Generation</label>
+              <label><input type="radio" name="q4" value="d" /> Fourth Generation</label>
+            </li>
+            <li>
+              <p class="question">Which generation computers were the largest and consumed a lot of power?</p>
+              <label><input type="radio" name="q5" value="a" /> First Generation</label>
+              <label><input type="radio" name="q5" value="b" /> Second Generation</label>
+              <label><input type="radio" name="q5" value="c" /> Third Generation</label>
+              <label><input type="radio" name="q5" value="d" /> Fourth Generation</label>
+            </li>
+            <li>
+              <p class="question">Which generation saw the development of artificial intelligence?</p>
+              <label><input type="radio" name="q6" value="a" /> First Generation</label>
+              <label><input type="radio" name="q6" value="b" /> Second Generation</label>
+              <label><input type="radio" name="q6" value="c" /> Third Generation</label>
+              <label><input type="radio" name="q6" value="d" /> Fourth Generation</label>
+            </li>
+            <li>
+              <p class="question">Which generation used magnetic core memory?</p>
+              <label><input type="radio" name="q7" value="a" /> First Generation</label>
+              <label><input type="radio" name="q7" value="b" /> Second Generation</label>
+              <label><input type="radio" name="q7" value="c" /> Third Generation</label>
+              <label><input type="radio" name="q7" value="d" /> Fourth Generation</label>
+            </li>
+            <li>
+              <p class="question">Which generation computers were faster and more reliable than their predecessors?</p>
+              <label><input type="radio" name="q8" value="a" /> First Generation</label>
+              <label><input type="radio" name="q8" value="b" /> Second Generation</label>
+              <label><input type="radio" name="q8" value="c" /> Third Generation</label>
+              <label><input type="radio" name="q8" value="d" /> Fourth Generation</label>
+            </li>
+            <li>
+              <p class="question">Which generation introduced the use of keyboards and monitors?</p>
+              <label><input type="radio" name="q9" value="a" /> First Generation</label>
+              <label><input type="radio" name="q9" value="b" /> Second Generation</label>
+              <label><input type="radio" name="q9" value="c" /> Third Generation</label>
+              <label><input type="radio" name="q9" value="d" /> Fourth Generation</label>
+            </li>
+            <li>
+              <p class="question">Which generation is characterized by the use of artificial intelligence and parallel processing?</p>
+              <label><input type="radio" name="q10" value="a" /> First Generation</label>
+              <label><input type="radio" name="q10" value="b" /> Second Generation</label>
+              <label><input type="radio" name="q10" value="c" /> Third Generation</label>
+              <label><input type="radio" name="q10" value="d" /> Fourth Generation</label>
+            </li>
+          </ol>
+          <button type="button" id="finalizeBtn" class="finalize-btn">Finalize Answer</button>
+        </form>
+        <div id="result" class="result"></div>
+      </div>
+      <script>
+        const answers = {
+          q1: "a",
+          q2: "b",
+          q3: "c",
+          q4: "d",
+          q5: "a",
+          q6: "d",
+          q7: "b",
+          q8: "b",
+          q9: "b",
+          q10: "d"
+        };
+        document.getElementById("finalizeBtn").addEventListener("click", function () {
+          const form = document.getElementById("quizForm");
+          let score = 0;
+          let wrongQuestions = [];
+          for (let i = 1; i <= 10; i++) {
+            const qName = "q" + i;
+            const selected = form.elements[qName].value;
+            if (!selected) {
+              alert("Please answer all questions before finalizing.");
+              return;
+            }
+            if (selected === answers[qName]) {
+              score++;
+            } else {
+              wrongQuestions.push(i);
+            }
+          }
+          let resultHTML = "<h2>Your score: " + score + " / 10</h2>";
+          if (wrongQuestions.length > 0) {
+            resultHTML += "<h3>Wrongly answered questions and correct answers:</h3><ul>";
+            wrongQuestions.forEach(function (qNum) {
+              resultHTML += "<li>Question " + qNum + ": Correct answer is option " + answers["q" + qNum].toUpperCase() + "</li>";
+            });
+            resultHTML += "</ul>";
+          }
+          document.getElementById("result").innerHTML = resultHTML;
+        });
+      </script>
+    </main>
