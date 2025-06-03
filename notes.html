@@ -10,8 +10,110 @@
     <link href="https://fonts.googleapis.com/css2?family=Doto:wght,ROND@100..900,4&display=swap" rel="stylesheet" />
     <!-- Tailwind CSS CDN for utility-first styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="styles.css" />
+    
+    <style>
+      /* Custom CSS for styles not easily covered by Tailwind */
+
+      /* Universal box-sizing, already handled by Tailwind's preflight, but good for explicit clarity */
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      /* Logo Glow specific styles */
+      .logo-glow {
+        font-family: 'Doto', sans-serif;
+        transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      }
+      .logo-glow:hover {
+        box-shadow: 0 0 15px 5px white;
+        border-color: white;
+      }
+
+      /* Hamburger icon animations */
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        transition: all 0.3s ease-in-out;
+      }
+      .hamburger.active div:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active div:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      /* Mobile navigation overlay animation */
+      .mobile-nav {
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      .mobile-nav.active {
+        transform: translateX(0);
+      }
+
+      /* Green dot blink animation */
+      .green_dot {
+        width: 0.75rem;
+        height: 0.75rem;
+        background-color: #34d399;
+        border-radius: 9999px;
+        box-shadow: 0 0 8px #34d399;
+        animation: blink 1.5s infinite;
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+
+      /* Password Overlay Styles */
+      .password-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .password-prompt {
+        background-color: #14213d;
+        padding: 2.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .password-message {
+        margin-top: 1rem;
+        font-size: 0.875rem;
+      }
+
+      /* Initially hidden content */
+      .hidden-content {
+        display: none;
+      }
+
+      /* Original body scrollbar hiding */
+      body {
+        overflow-y: auto;
+        -ms-overflow-style: none; 
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
   </head>
   <body class="bg-[#0a1128] text-white font-[Poppins] antialiased min-h-screen flex flex-col overflow-x-hidden">
     <!-- Header Section (consistent with index.html) -->
@@ -41,26 +143,131 @@
       </nav>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-8 flex flex-col items-center justify-center">
-      <div class="w-full max-w-4xl bg-[#14213d] rounded-xl shadow-lg overflow-hidden border border-white/20 p-4 sm:p-6">
-        <!-- Notion iframe for notes -->
-        <iframe src="https://leather-spandex-8b5.notion.site/ebd/ebdeb4f2e65f41f49202167ba38ddca6" class="w-full min-h-[600px] h-[70vh] rounded-lg" frameborder="0" allowfullscreen></iframe>
+    <!-- Password Protection Overlay -->
+    <div id="passwordOverlay" class="password-overlay">
+      <div class="password-prompt">
+        <h2 class="text-2xl font-bold text-[#fca311] mb-4">Enter Password to Access Notes</h2>
+        <input type="password" id="passwordInput" placeholder="Password" class="w-full p-3 rounded-md bg-[#0a1128] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#fca311] mb-4" />
+        <button id="passwordSubmit" class="bg-[#fca311] text-[#14213d] font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-amber-600 transition duration-300 transform hover:scale-105">
+          Submit
+        </button>
+        <p id="passwordMessage" class="password-message text-red-500 mt-4"></p>
       </div>
-      
-      <!-- Take MCQ Test Button -->
-      <div class="text-center mt-8 mb-4">
-        <a href="Quiz/chapters.html" class="inline-block bg-[#fca311] text-[#14213d] font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-amber-600 transition duration-300 transform hover:scale-105">
-          Take MCQ Test
-        </a>
-      </div>
-    </main>
+    </div>
 
-    <!-- Footer Section (consistent with index.html) -->
-    <footer class="text-center p-4 text-sm text-gray-400 bg-[#111827] mt-8">
-      &copy; 2024 GaNesh Khatiwada. All rights reserved.
-    </footer>
+    <!-- Main Content Area (initially hidden) -->
+    <div id="mainContent" class="hidden-content">
+      <main class="flex-grow container mx-auto px-4 py-8 flex flex-col items-center justify-center">
+        <h1 class="text-4xl font-bold text-[#fca311] text-center mb-8">My Notes</h1>
+        <div class="w-full max-w-4xl bg-[#14213d] rounded-xl shadow-lg overflow-hidden border border-white/20 p-4 sm:p-6">
+          <!-- Notion iframe for notes -->
+          <iframe src="https://leather-spandex-8b5.notion.site/ebd/ebdeb4f2e65f41f49202167ba38ddca6" class="w-full min-h-[600px] h-[70vh] rounded-lg" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Take MCQ Test Button -->
+        <div class="text-center mt-8 mb-4">
+          <a href="Quiz/chapters.html" class="inline-block bg-[#fca311] text-[#14213d] font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-amber-600 transition duration-300 transform hover:scale-105">
+            Take MCQ Test
+          </a>
+        </div>
+      </main>
 
-    <!-- Main JavaScript file -->
-    <script src="script.js" defer></script>
+      <!-- Footer Section (consistent with index.html) -->
+      <footer class="text-center p-4 text-sm text-gray-400 bg-[#111827] mt-8">
+        &copy; 2024 GaNesh Khatiwada. All rights reserved.
+      </footer>
+    </div>
+
+    <script>
+      // --- Hamburger menu toggle functionality ---
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobileNav');
+
+      if (hamburger && mobileNav) {
+        console.log('Hamburger and mobileNav elements found'); // Debug log
+
+        // Toggle mobile navigation visibility and hamburger icon animation
+        hamburger.addEventListener('click', () => {
+          console.log('Hamburger clicked'); // Debug log
+          // Toggle the 'active' class on mobileNav to trigger slide animation
+          const isActive = mobileNav.classList.toggle('active');
+          // Toggle 'active' class on hamburger to animate its icon
+          hamburger.classList.toggle('active', isActive);
+          // Update ARIA-expanded attribute for accessibility
+          hamburger.setAttribute('aria-expanded', isActive);
+        });
+
+        // Hide mobile nav when clicking outside of it or the hamburger button
+        document.addEventListener('click', (event) => {
+          const isClickInsideNav = mobileNav.contains(event.target);
+          const isClickOnHamburger = hamburger.contains(event.target);
+
+          // If click is outside both the nav and the hamburger, and the nav is currently open
+          if (!isClickInsideNav && !isClickOnHamburger) {
+            if (mobileNav.classList.contains('active')) { // Check for 'active' class
+              mobileNav.classList.remove('active');
+              hamburger.classList.remove('active');
+              hamburger.setAttribute('aria-expanded', false);
+            }
+          }
+        });
+
+        // Close mobile nav when a link inside it is clicked (for smooth scrolling)
+        mobileNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', false);
+          });
+        });
+
+      } else {
+        console.log('Hamburger or mobileNav element not found'); // Debug log
+      }
+
+      // --- Password Protection Logic ---
+      // The password is the current minute, formatted as a two-digit string (e.g., "05", "30")
+      function getCorrectPassword() {
+        const now = new Date();
+        const minute = now.getMinutes();
+        return String(minute).padStart(2, '0');
+      }
+
+      const passwordInput = document.getElementById('passwordInput');
+      const passwordSubmit = document.getElementById('passwordSubmit');
+      const passwordMessage = document.getElementById('passwordMessage');
+      const passwordOverlay = document.getElementById('passwordOverlay');
+      const mainContent = document.getElementById('mainContent');
+
+      passwordSubmit.addEventListener('click', () => {
+        if (passwordInput.value === getCorrectPassword()) {
+          passwordOverlay.style.display = 'none'; // Hide the overlay
+          mainContent.style.display = 'block'; // Show the main content
+          // Optional: Save a flag in localStorage to avoid re-entering password
+          // Note: For security, a time-based password should ideally not be stored persistently.
+          // This is kept for demonstration but consider implications for real applications.
+          localStorage.setItem('notesAccessGranted', 'true');
+        } else {
+          passwordMessage.textContent = 'Incorrect password. Please try again.';
+          passwordInput.value = ''; // Clear the input field
+        }
+      });
+
+      // Check if access was previously granted (e.g., from a previous session)
+      // This will only work if the minute hasn't changed since the last access.
+      // For a time-based password, this might not be desired, but it keeps the original
+      // functionality of the localStorage flag.
+      window.addEventListener('load', () => {
+        if (localStorage.getItem('notesAccessGranted') === 'true' && passwordInput.value === getCorrectPassword()) {
+          passwordOverlay.style.display = 'none';
+          mainContent.style.display = 'block';
+        } else {
+          // If the minute changed or no access was granted, ensure overlay is visible
+          passwordOverlay.style.display = 'flex'; // Use flex to center it
+          mainContent.style.display = 'none';
+        }
+      });
+
+    </script>
   </body>
 </html>

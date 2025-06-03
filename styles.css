@@ -23,7 +23,7 @@ nav.hidden.md\\:block ul {
 
 /* Override mobile nav background color to black */
 #mobileNav {
-  background-color: black !important;
+  background-color: rgb(13, 1, 28) !important;
 }
 
 /* Logo Glow specific styles */
