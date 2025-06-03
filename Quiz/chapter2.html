@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 3: Computer Generations Quiz - Redesigned (Scrollable)</title>
+    <title>Chapter 2: History of Computer MCQ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -111,9 +111,9 @@
     <main class="bg-white w-full max-w-2xl p-6 sm:p-8 rounded-xl shadow-2xl fade-in mt-16">
 
         <section id="intro-section" class="text-center">
-            <h1 class="text-3xl sm:text-4xl font-bold text-slate-700 mb-4">Welcome to the Computer Generations MCQ!</h1>
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-700 mb-4">Welcome to the History of Computer MCQ!</h1>
             <p class="text-slate-600 mb-8 text-base sm:text-lg">
-                Test your knowledge about the different generations of computers. You'll answer all questions on one page and get your score at the end.
+                Test your knowledge about the fascinating history of computers, from early calculating devices to modern machines. You'll answer all questions on one page and get your score at the end.
             </p>
             <button id="startQuizBtn" class="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 text-lg">
                 Start Test
@@ -166,31 +166,31 @@
 
         // --- Quiz Questions ---
         const questions = [
-            { question: "Which generation used vacuum tubes?", options: ["First", "Second", "Third", "Fourth"], answer: "First" },
-            { question: "Transistors were introduced in which generation?", options: ["First", "Second", "Third", "Fourth"], answer: "Second" },
-            { question: "Which generation introduced integrated circuits (ICs)?", options: ["First", "Second", "Third", "Fourth"], answer: "Third" },
-            { question: "Microprocessors are primarily associated with which generation?", options: ["Fourth", "Third", "Second", "First"], answer: "Fourth" },
-            { question: "Which generation is characterized by the development of Artificial Intelligence (AI)?", options: ["First", "Second", "Fourth", "Fifth"], answer: "Fifth" },
-            { question: "What does AI stand for?", options: ["Automated Input", "Artificial Intelligence", "Active Internet", "Actual Interface"], answer: "Artificial Intelligence" },
-            { question: "Which generation is associated with current and future computers, focusing on parallel processing and AI?", options: ["Third", "Fourth", "Fifth", "Second"], answer: "Fifth" },
-            { question: "What does VLSI stand for?", options: ["Very Low Speed Integration", "Very Large Scale Integration", "Virtual Logic System Interface", "Verified Logic Signal Input"], answer: "Very Large Scale Integration" },
-            { question: "Which generation of computers was characterized by huge size, high power consumption, and slow speed?", options: ["First", "Second", "Fourth", "Fifth"], answer: "First" },
-            { question: "What is the full form of IC?", options: ["Integrated Circuit", "Internal Chip", "Interface Card", "Input Controller"], answer: "Integrated Circuit" },
-            { question: "Which generation saw the introduction of operating systems and high-level programming languages like FORTRAN and COBOL?", options: ["First", "Second", "Third", "Fourth"], answer: "Second" },
-            { question: "The concept of a 'stored program' computer was developed in which generation?", options: ["First", "Second", "Third", "Fourth"], answer: "First" },
-            { question: "What was a major advantage of transistors over vacuum tubes?", options: ["Larger size", "More heat generation", "Less reliable", "Smaller size and less power consumption"], answer: "Smaller size and less power consumption" },
-            { question: "Which generation led to the development of personal computers (PCs)?", options: ["Second", "Third", "Fourth", "Fifth"], answer: "Fourth" },
-            { question: "ULSI technology is a characteristic of which generation?", options: ["Third", "Fourth", "Fifth", "Second"], answer: "Fifth" },
-            { question: "Which of the following is an example of a first-generation computer?", options: ["IBM PC", "UNIVAC", "Apple II", "Cray-1"], answer: "UNIVAC" },
-            { question: "Batch processing was primarily used in which computer generation?", options: ["First", "Second", "Third", "Fourth"], answer: "First" },
-            { question: "The development of graphical user interfaces (GUIs) became prominent in which generation?", options: ["Second", "Third", "Fourth", "Fifth"], answer: "Fourth" },
-            { question: "Which generation is associated with the rise of the internet and networking?", options: ["Second", "Third", "Fourth", "Fifth"], answer: "Fourth" },
-            { question: "What was the main storage technology used in first-generation computers?", options: ["Magnetic core", "Magnetic drums", "Floppy disks", "Hard drives"], answer: "Magnetic drums" },
-            { question: "Which generation introduced time-sharing and multiprocessing operating systems?", options: ["First", "Second", "Third", "Fourth"], answer: "Third" },
-            { question: "Expert systems and natural language processing are key features of which generation?", options: ["Third", "Fourth", "Fifth", "Second"], answer: "Fifth" },
-            { question: "The period of the third generation of computers was roughly:", options: ["1940-1956", "1956-1963", "1964-1971", "1971-1980"], answer: "1964-1971" },
-            { question: "Which generation saw the emergence of supercomputers?", options: ["First", "Second", "Third", "Fourth"], answer: "Fourth" },
-            { question: "What is the primary characteristic of fifth-generation computers?", options: ["Vacuum tubes", "Transistors", "Integrated Circuits", "Artificial Intelligence and Parallel Processing"], answer: "Artificial Intelligence and Parallel Processing" }
+            { question: "Which ancient device was used for basic arithmetic calculations using beads on rods?", options: ["Napier's Bones", "Abacus", "Slide Rule", "Pascaline"], answer: "Abacus" },
+            { question: "Who invented Napier's Bones, a manual calculating device?", options: ["Blaise Pascal", "Charles Babbage", "John Napier", "Gottfried Leibniz"], answer: "John Napier" },
+            { question: "Which mechanical calculator, invented by Blaise Pascal, could perform addition and subtraction?", options: ["Stepped Reckoner", "Pascaline", "Difference Engine", "Analytical Engine"], answer: "Pascaline" },
+            { question: "Gottfried Leibniz improved upon the Pascaline to create which device that could also perform multiplication and division?", options: ["Abacus", "Slide Rule", "Stepped Reckoner", "Jacquard Loom"], answer: "Stepped Reckoner" },
+            { question: "Who is considered the 'Father of the Computer' for his conceptual design of the Analytical Engine?", options: ["Ada Lovelace", "Herman Hollerith", "Charles Babbage", "John von Neumann"], answer: "Charles Babbage" },
+            { question: "Lady Ada Lovelace is recognized for her work on which machine, often considered the first computer programmer?", options: ["ENIAC", "Mark I", "Analytical Engine", "UNIVAC"], answer: "Analytical Engine" },
+            { question: "Which invention by Joseph Marie Jacquard used punched cards to control patterns in weaving, influencing early computer design?", options: ["Tabulating Machine", "Jacquard Loom", "Difference Engine", "ABC"], answer: "Jacquard Loom" },
+            { question: "Herman Hollerith developed the Tabulating Machine for which major purpose?", options: ["Solving complex equations", "Controlling factory machinery", "Processing the U.S. Census data", "Designing architectural blueprints"], answer: "Processing the U.S. Census data" },
+            { question: "The Atanasoff-Berry Computer (ABC) is notable for being the first electronic digital computing device to use:", options: ["Vacuum tubes", "Transistors", "Binary arithmetic", "Integrated circuits"], answer: "Binary arithmetic" },
+            { question: "Which large-scale electromechanical computer, developed at Harvard, was known for its long calculation times?", options: ["ENIAC", "UNIVAC", "EDSAC", "Mark I"], answer: "Mark I" },
+            { question: "ENIAC, considered one of the first electronic general-purpose digital computers, primarily used which technology?", options: ["Transistors", "Vacuum tubes", "Microprocessors", "Integrated circuits"], answer: "Vacuum tubes" },
+            { question: "Which computer was the first commercial computer produced in the United States?", options: ["ENIAC", "EDSAC", "UNIVAC I", "EDVAC"], answer: "UNIVAC I" },
+            { question: "The concept of a 'stored program' computer was first implemented in which British computer?", options: ["ENIAC", "UNIVAC", "EDSAC", "Mark I"], answer: "EDSAC" },
+            { question: "Which computer, designed by John von Neumann, also incorporated the stored-program concept?", options: ["ABC", "EDVAC", "Pascaline", "Analytical Engine"], answer: "EDVAC" },
+            { question: "What was the first computer brought to Nepal for the census of 2028 BS?", options: ["ENIAC", "UNIVAC I", "IBM 1401", "Apple II"], answer: "IBM 1401" },
+            { question: "The IBM 1401, brought to Nepal for the 2028 BS census, belongs to which generation of computers?", options: ["First Generation", "Second Generation", "Third Generation", "Fourth Generation"], answer: "Second Generation" },
+            { question: "Before electronic computers, which device used sliding scales to perform multiplication and division?", options: ["Abacus", "Napier's Bones", "Slide Rule", "Pascaline"], answer: "Slide Rule" },
+            { question: "Who founded the Tabulating Machine Company, which later became IBM?", options: ["Charles Babbage", "Herman Hollerith", "John Atanasoff", "Alan Turing"], answer: "Herman Hollerith" },
+            { question: "The idea of using binary code for computer operations was a significant step towards which type of computing?", options: ["Analog computing", "Mechanical computing", "Digital computing", "Hybrid computing"], answer: "Digital computing" },
+            { question: "Which early computer was designed to be Turing-complete, meaning it could simulate any algorithm?", options: ["ABC", "ENIAC", "Mark I", "Analytical Engine"], answer: "Analytical Engine" },
+            { question: "The development of punched cards for data input and output was a significant contribution of which early computing pioneer?", options: ["Blaise Pascal", "Charles Babbage", "Herman Hollerith", "John von Neumann"], answer: "Herman Hollerith" },
+            { question: "Which of these was NOT an electronic computer?", options: ["ENIAC", "UNIVAC I", "Mark I", "EDSAC"], answer: "Mark I" },
+            { question: "The transition from mechanical to electronic computing was largely driven by the adoption of what component?", options: ["Gears", "Levers", "Vacuum tubes", "Punch cards"], answer: "Vacuum tubes" },
+            { question: "Which machine is considered the first automatic digital computer?", options: ["ENIAC", "ABC", "Mark I", "Analytical Engine"], answer: "ABC" },
+            { question: "The first computer in Nepal was primarily used for:", options: ["Scientific research", "Business accounting", "Census data processing", "Weather forecasting"], answer: "Census data processing" }
         ];
 
         // --- DOM Elements ---
@@ -201,7 +201,7 @@
         const passwordSubmitBtn = document.getElementById('passwordSubmit');
         const passwordWarning = document.getElementById('passwordWarning');
         const quizSection = document.getElementById('quiz-section');
-        const quizHeader = document.getElementById('quizHeader'); // Renamed from progressBar for better semantics
+        const quizHeader = document.getElementById('quizHeader');
         const questionContainer = document.getElementById('questionContainer');
         const submitQuizBtn = document.getElementById('submitQuizBtn');
         const quizWarning = document.getElementById('quizWarning');
@@ -213,7 +213,6 @@
         const currentYearSpan = document.getElementById('currentYear');
 
         // --- Quiz State ---
-        // Initialize userAnswers array with the correct length (25 questions)
         let userAnswers = Array(questions.length).fill(null);
         let isReviewMode = false;
 
@@ -221,7 +220,7 @@
         function initializeApp() {
             showSection('intro-section');
             if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
+                currentYearSpan.textContent = new Date().getFullYear(); // Corrected typo here
             }
         }
 
@@ -259,8 +258,7 @@
             if (enteredPassword === currentMinute) { // Compare with current minute
                 showSection('quiz-section');
                 isReviewMode = false; 
-                // Re-initialize userAnswers array with the correct length (25 questions)
-                userAnswers = Array(questions.length).fill(null); 
+                userAnswers = Array(questions.length).fill(null); // Clear previous answers
                 renderAllQuestions(); // Render all questions at once
             } else {
                 passwordWarning.textContent = "Incorrect password. Please try again."; // Removed hint

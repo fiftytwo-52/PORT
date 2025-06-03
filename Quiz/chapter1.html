@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 3: Computer Generations Quiz - Redesigned (Scrollable)</title>
+    <title>Chapter 1: Computer Concept MCQ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -111,9 +111,9 @@
     <main class="bg-white w-full max-w-2xl p-6 sm:p-8 rounded-xl shadow-2xl fade-in mt-16">
 
         <section id="intro-section" class="text-center">
-            <h1 class="text-3xl sm:text-4xl font-bold text-slate-700 mb-4">Welcome to the Computer Generations MCQ!</h1>
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-700 mb-4">Welcome to the Computer Concept MCQ!</h1>
             <p class="text-slate-600 mb-8 text-base sm:text-lg">
-                Test your knowledge about the different generations of computers. You'll answer all questions on one page and get your score at the end.
+                Test your knowledge about the fundamental concepts of computers. You'll answer all questions on one page and get your score at the end.
             </p>
             <button id="startQuizBtn" class="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 text-lg">
                 Start Test
@@ -166,31 +166,31 @@
 
         // --- Quiz Questions ---
         const questions = [
-            { question: "Which generation used vacuum tubes?", options: ["First", "Second", "Third", "Fourth"], answer: "First" },
-            { question: "Transistors were introduced in which generation?", options: ["First", "Second", "Third", "Fourth"], answer: "Second" },
-            { question: "Which generation introduced integrated circuits (ICs)?", options: ["First", "Second", "Third", "Fourth"], answer: "Third" },
-            { question: "Microprocessors are primarily associated with which generation?", options: ["Fourth", "Third", "Second", "First"], answer: "Fourth" },
-            { question: "Which generation is characterized by the development of Artificial Intelligence (AI)?", options: ["First", "Second", "Fourth", "Fifth"], answer: "Fifth" },
-            { question: "What does AI stand for?", options: ["Automated Input", "Artificial Intelligence", "Active Internet", "Actual Interface"], answer: "Artificial Intelligence" },
-            { question: "Which generation is associated with current and future computers, focusing on parallel processing and AI?", options: ["Third", "Fourth", "Fifth", "Second"], answer: "Fifth" },
-            { question: "What does VLSI stand for?", options: ["Very Low Speed Integration", "Very Large Scale Integration", "Virtual Logic System Interface", "Verified Logic Signal Input"], answer: "Very Large Scale Integration" },
-            { question: "Which generation of computers was characterized by huge size, high power consumption, and slow speed?", options: ["First", "Second", "Fourth", "Fifth"], answer: "First" },
-            { question: "What is the full form of IC?", options: ["Integrated Circuit", "Internal Chip", "Interface Card", "Input Controller"], answer: "Integrated Circuit" },
-            { question: "Which generation saw the introduction of operating systems and high-level programming languages like FORTRAN and COBOL?", options: ["First", "Second", "Third", "Fourth"], answer: "Second" },
-            { question: "The concept of a 'stored program' computer was developed in which generation?", options: ["First", "Second", "Third", "Fourth"], answer: "First" },
-            { question: "What was a major advantage of transistors over vacuum tubes?", options: ["Larger size", "More heat generation", "Less reliable", "Smaller size and less power consumption"], answer: "Smaller size and less power consumption" },
-            { question: "Which generation led to the development of personal computers (PCs)?", options: ["Second", "Third", "Fourth", "Fifth"], answer: "Fourth" },
-            { question: "ULSI technology is a characteristic of which generation?", options: ["Third", "Fourth", "Fifth", "Second"], answer: "Fifth" },
-            { question: "Which of the following is an example of a first-generation computer?", options: ["IBM PC", "UNIVAC", "Apple II", "Cray-1"], answer: "UNIVAC" },
-            { question: "Batch processing was primarily used in which computer generation?", options: ["First", "Second", "Third", "Fourth"], answer: "First" },
-            { question: "The development of graphical user interfaces (GUIs) became prominent in which generation?", options: ["Second", "Third", "Fourth", "Fifth"], answer: "Fourth" },
-            { question: "Which generation is associated with the rise of the internet and networking?", options: ["Second", "Third", "Fourth", "Fifth"], answer: "Fourth" },
-            { question: "What was the main storage technology used in first-generation computers?", options: ["Magnetic core", "Magnetic drums", "Floppy disks", "Hard drives"], answer: "Magnetic drums" },
-            { question: "Which generation introduced time-sharing and multiprocessing operating systems?", options: ["First", "Second", "Third", "Fourth"], answer: "Third" },
-            { question: "Expert systems and natural language processing are key features of which generation?", options: ["Third", "Fourth", "Fifth", "Second"], answer: "Fifth" },
-            { question: "The period of the third generation of computers was roughly:", options: ["1940-1956", "1956-1963", "1964-1971", "1971-1980"], answer: "1964-1971" },
-            { question: "Which generation saw the emergence of supercomputers?", options: ["First", "Second", "Third", "Fourth"], answer: "Fourth" },
-            { question: "What is the primary characteristic of fifth-generation computers?", options: ["Vacuum tubes", "Transistors", "Integrated Circuits", "Artificial Intelligence and Parallel Processing"], answer: "Artificial Intelligence and Parallel Processing" }
+            { question: "What is a computer primarily defined as?", options: ["A device for writing documents", "An electronic device that processes data according to a set of instructions", "A machine for playing games", "A tool for drawing pictures"], answer: "An electronic device that processes data according to a set of instructions" },
+            { question: "Which of the following is NOT a fundamental characteristic of a computer?", options: ["Speed", "Accuracy", "Diligence", "IQ"], answer: "IQ" },
+            { question: "What does the 'P' in IPO cycle stand for?", options: ["Program", "Processing", "Power", "Print"], answer: "Processing" },
+            { question: "The term 'GIGO' in computer science refers to:", options: ["Great Input, Great Output", "Garbage In, Garbage Out", "General Information, General Output", "Graphical Interface, Graphical Output"], answer: "Garbage In, Garbage Out" },
+            { question: "Which component of a computer is considered its 'brain'?", options: ["Monitor", "Keyboard", "CPU", "Printer"], answer: "CPU" },
+            { question: "What is the function of the 'Input' stage in the IPO cycle?", options: ["Displaying results", "Storing data", "Accepting data and instructions", "Performing calculations"], answer: "Accepting data and instructions" },
+            { question: "Which of these is an example of an input device?", options: ["Speaker", "Monitor", "Printer", "Mouse"], answer: "Mouse" },
+            { question: "What is the main purpose of the 'Output' stage in the IPO cycle?", options: ["To store data", "To process data", "To provide results to the user", "To accept instructions"], answer: "To provide results to the user" },
+            { question: "The ability of a computer to perform repetitive tasks tirelessly and consistently is known as:", options: ["Speed", "Accuracy", "Diligence", "Versatility"], answer: "Diligence" },
+            { question: "Which of the following is a characteristic of a computer that means it can perform various types of tasks?", options: ["Reliability", "Automation", "Versatility", "Storage"], answer: "Versatility" },
+            { question: "What is the smallest unit of data that a computer can understand?", options: ["Byte", "Kilobyte", "Bit", "Megabyte"], answer: "Bit" },
+            { question: "Which part of the CPU performs arithmetic and logical operations?", options: ["Control Unit (CU)", "Memory Unit (MU)", "Arithmetic Logic Unit (ALU)", "Registers"], answer: "Arithmetic Logic Unit (ALU)" },
+            { question: "What is the primary function of the Control Unit (CU) in a CPU?", options: ["To perform calculations", "To store data temporarily", "To manage and coordinate all computer operations", "To display output"], answer: "To manage and coordinate all computer operations" },
+            { question: "Which of these is a type of primary memory?", options: ["Hard Disk Drive", "USB Flash Drive", "RAM", "CD-ROM"], answer: "RAM" },
+            { question: "What is 'Software' in computer terms?", options: ["The physical components of a computer", "Programs and instructions that tell the hardware what to do", "The electrical wiring inside a computer", "The data stored on a computer"], answer: "Programs and instructions that tell the hardware what to do" },
+            { question: "What is 'Hardware' in computer terms?", options: ["The operating system", "The physical components of a computer system", "The applications installed on a computer", "The data processed by the computer"], answer: "The physical components of a computer system" },
+            { question: "A collection of related data and instructions organized for a specific purpose is called:", options: ["A file", "A folder", "A program", "An operating system"], answer: "A program" },
+            { question: "Which of the following is an example of system software?", options: ["Microsoft Word", "Google Chrome", "Operating System", "Adobe Photoshop"], answer: "Operating System" },
+            { question: "Which of the following is an example of application software?", options: ["Windows 10", "Linux", "Microsoft Excel", "macOS"], answer: "Microsoft Excel" },
+            { question: "The process of converting raw facts into meaningful information is called:", options: ["Input", "Output", "Processing", "Storage"], answer: "Processing" },
+            { question: "What does 'Accuracy' in computer characteristics refer to?", options: ["The speed of calculations", "The ability to perform tasks without errors", "The amount of data it can store", "The variety of tasks it can do"], answer: "The ability to perform tasks without errors" },
+            { question: "Which cycle describes the fundamental operations of a computer: input, process, output, and storage?", options: ["CPU Cycle", "Memory Cycle", "IPO Cycle", "Data Cycle"], answer: "IPO Cycle" },
+            { question: "If you provide incorrect data to a computer, what will be the result, according to GIGO?", options: ["The computer will correct it automatically", "The computer will refuse to process it", "The output will also be incorrect", "The computer will crash"], answer: "The output will also be incorrect" },
+            { question: "What is the primary purpose of a computer's 'Storage' unit?", options: ["To perform calculations", "To display information", "To hold data and instructions permanently or temporarily", "To accept user commands"], answer: "To hold data and instructions permanently or temporarily" },
+            { question: "Which of these is a common unit for measuring computer processing speed?", options: ["Gigabytes (GB)", "Hertz (Hz)", "Pixels (px)", "Volts (V)"], answer: "Hertz (Hz)" }
         ];
 
         // --- DOM Elements ---
@@ -201,7 +201,7 @@
         const passwordSubmitBtn = document.getElementById('passwordSubmit');
         const passwordWarning = document.getElementById('passwordWarning');
         const quizSection = document.getElementById('quiz-section');
-        const quizHeader = document.getElementById('quizHeader'); // Renamed from progressBar for better semantics
+        const quizHeader = document.getElementById('quizHeader');
         const questionContainer = document.getElementById('questionContainer');
         const submitQuizBtn = document.getElementById('submitQuizBtn');
         const quizWarning = document.getElementById('quizWarning');
@@ -213,7 +213,6 @@
         const currentYearSpan = document.getElementById('currentYear');
 
         // --- Quiz State ---
-        // Initialize userAnswers array with the correct length (25 questions)
         let userAnswers = Array(questions.length).fill(null);
         let isReviewMode = false;
 
@@ -259,8 +258,7 @@
             if (enteredPassword === currentMinute) { // Compare with current minute
                 showSection('quiz-section');
                 isReviewMode = false; 
-                // Re-initialize userAnswers array with the correct length (25 questions)
-                userAnswers = Array(questions.length).fill(null); 
+                userAnswers = Array(questions.length).fill(null); // Clear previous answers
                 renderAllQuestions(); // Render all questions at once
             } else {
                 passwordWarning.textContent = "Incorrect password. Please try again."; // Removed hint
